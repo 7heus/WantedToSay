@@ -1,0 +1,15 @@
+.Sidebar {
+    width: 250px; /* Width of the sidebar */
+    height: 100vh; /* Full viewport height */
+    background-color: black; /* Background color */
+    color: white; /* Text color */
+    position: fixed; /* Fixed position on the left */
+    top: 0; /* Aligns the sidebar to the top */
+    left: 0; /* Aligns the sidebar to the left */
+    display: flex; /* Use Flexbox layout */
+    flex-direction: column; /* Arrange child elements in a column */
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Horizontally center content */
+    padding: 20px; /* Padding around the content */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
