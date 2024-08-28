@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { decryptMessages } from "../lib/api";
 import "./NoteCard.css";
+import { decryptMessages } from "../lib/api";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 export default function NoteCard({ data }) {
-  const { user } = useContext(AuthContext);
+  const { user, uniqueKey } = useContext(AuthContext);
   const [content, setContent] = useState("");
+  const decrypt = () => {
+    user &&
+      decryptMessages(data, user.uniqueKey)
+        .then((dat) => {
+          if (dat && dat.data && dat.data.length > 0) {
+            setContent(dat.data[0].content);
+          }
+        })
+        .catch((error) => {
+          console.error("Error decrypting message:", error);
+        });
+  };
   useEffect(() => {
-    if (data) {
-      user &&
-        user.uniqueKey &&
-        decryptMessages(data, user.uniqueKey)
-          .then((dat) => {
-            if (dat && dat.data && dat.data.length > 0) {
-              setContent(dat.data[0].content);
-            }
-          })
-          .catch((error) => {
-            console.error("Error decrypting message:", error);
-          });
-    }
-  }, [data]);
+    decrypt();
+  }, [user]);
   useEffect(() => {
     if (content.length >= 50) {
       setContent(`${content.slice(0, 50)} ...`);
