@@ -23,6 +23,7 @@ export default function NoteCard({ data }) {
   return (
     <Link to={`/messages/${data._id}`}>
       <div className="Card">
+        <p>{`To: ${data.receiver}`}</p>
         <div
           className="inner-box"
           style={{
