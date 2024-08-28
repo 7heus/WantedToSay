@@ -27,14 +27,19 @@ export default function Sidebar({ boolean }) {
       name: "Sign Up",
       to: "/signup",
     },
-    
+
     {
       name: "Login",
       to: "/login",
     },
     
     {
-      name: "About Us",
+      name: "WantedToSay",
+      to: "/wantedtosay",
+    },
+
+    {
+      name: "Developing team",
       to: "/about",
     },
   ];

@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import IsAnon from "./components/isAnon";
 import AboutUs from "./pages/AboutUs";
 import NotFoundPage from "./pages/NotFoundPage";
+import AboutTheProject from "./pages/AboutTheProject";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         />
         <Route path="/about" element={<AboutUs />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/wantedtosay" element={<AboutTheProject />} />
       </Routes>
 
       <Sidebar />

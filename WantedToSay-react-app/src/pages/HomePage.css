@@ -20,7 +20,9 @@
   .HomePage h1:hover {
     transform: scale(1.05); /* Slightly enlarge on hover */
     color: #ffeb3b; /* Change text color on hover */
-  }
+    font-weight: bold; /* Make the text bold on hover */
+}
+
 
 
   .HomePage h2 {
@@ -43,5 +45,7 @@
   
 .HomePage h2:hover {
     transform: translateY(-5px); /* Slightly move up on hover */
-    color: #cddc39; /* Change text color on hover */
+    transform: scale(1.5); /* Slightly enlarge on hover */
+    font-weight: bold; /* Make the text bold on hover */
+    color: #ffeb3b; /* Change text color on hover */
   }
