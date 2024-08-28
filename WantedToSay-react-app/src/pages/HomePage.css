@@ -9,6 +9,7 @@
     text-fill-color: transparent; /* Transparent text fill to show gradient */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
     margin: 0; /* Remove default margin */
+    margin-top: 75px;
     padding: 20px; /* Padding around the text */
     text-align: center; /* Center align text */
     letter-spacing: 1px; /* Spacing between letters */

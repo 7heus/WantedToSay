@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsAnon from "./components/isAnon";
+import AboutUs from "./pages/AboutUs";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -30,7 +32,11 @@ function App() {
             </IsAnon>
           }
         />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      <Sidebar />
 
       <Footer />
     </div>
