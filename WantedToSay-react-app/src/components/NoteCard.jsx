@@ -18,8 +18,11 @@ export default function NoteCard({ data }) {
         });
     }
   }, [data]);
-
-  useEffect(() => console.log(content), [content]);
+  useEffect(() => {
+    if (content.length >= 50) {
+      setContent(`${content.slice(0, 50)} ...`);
+    }
+  }, [content]);
   return (
     <Link to={`/messages/${data._id}`}>
       <div className="Card">
