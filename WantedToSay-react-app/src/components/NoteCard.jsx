@@ -21,8 +21,8 @@ export default function NoteCard({ data }) {
   return (
     <Link to={`/messages/${data._id}`}>
       <div className="Card">
-        <div className="content" style={{}}>
-          <p className="content">{content && content}</p>
+        <div className="inner-box">
+            <p className="content">{content && content}</p>
         </div>
       </div>
     </Link>

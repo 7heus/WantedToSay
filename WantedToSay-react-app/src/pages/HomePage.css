@@ -1,9 +1,46 @@
-.HomePage h1{
-    color: red;
-    margin: 0%;
-}
+.HomePage h1 {
+    color: #fff; /* Default text color */
+    font-size: 4rem; /* Large font size */
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+    background: linear-gradient(45deg, #ff6f61, #f9a825); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    background-clip: text; /* Clip the background to the text */
+    text-fill-color: transparent; /* Transparent text fill to show gradient */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Padding around the text */
+    text-align: center; /* Center align text */
+    letter-spacing: 1px; /* Spacing between letters */
+    line-height: 1.2; /* Line height for better readability */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+  }
 
-.HomePage h2{
-    color: red;
-    margin: 0%;
-}
+  .HomePage h1:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    color: #ffeb3b; /* Change text color on hover */
+  }
+
+
+  .HomePage h2 {
+    color: #fff; /* Default text color */
+    font-size: 2.5rem; /* Slightly smaller font size than h1 */
+    font-weight: 600; /* Semi-bold text */
+    text-transform: capitalize; /* Capitalize the first letter of each word */
+    background: linear-gradient(90deg, #4caf50, #81c784); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the gradient to the text */
+    background-clip: text; /* Clip the gradient to the text */
+    text-fill-color: transparent; /* Transparent text fill to show gradient */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    margin: 0; /* Remove default margin */
+    padding: 10px; /* Padding around the text */
+    text-align: center; /* Center align text */
+    letter-spacing: 0.5px; /* Spacing between letters */
+    line-height: 1.3; /* Line height for readability */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+.HomePage h2:hover {
+    transform: translateY(-5px); /* Slightly move up on hover */
+    color: #cddc39; /* Change text color on hover */
+  }
