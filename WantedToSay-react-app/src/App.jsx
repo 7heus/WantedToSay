@@ -4,13 +4,9 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import HomePage from "./pages/HomePage";
 import Footer from "./components/Footer";
-<<<<<<< HEAD
-import HomePage from "./pages/HomePage";
-=======
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsAnon from "./components/isAnon";
->>>>>>> FrontEndDeveloping
 
 function App() {
   return (
