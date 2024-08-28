@@ -24,7 +24,7 @@ function Navbar() {
       )}
       {isLoggedIn && (
         <>
-          <span>Welcome, {user && user.username}</span>
+          <span>Welcome, {user && user.name}</span>
           <button onClick={logOutUser}>Logout</button>
         </>
       )}

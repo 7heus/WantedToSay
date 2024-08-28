@@ -7,18 +7,20 @@ function SignupPage(props) {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [uniqueKey, setUniqueKey] = useState("c001k3y");
 
   const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
+  const handleKey = (e) => setUniqueKey(e.target.value);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
 
     //creating an object
-    const requestBody = { email, password, name };
+    const requestBody = { email, password, name, uniqueKey };
 
     // If the POST request is a successful redirect to the login page
     authService
@@ -52,6 +54,13 @@ function SignupPage(props) {
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
 
+        <label>Encryption key:</label>
+        <input
+          type="password"
+          name="key"
+          value={uniqueKey}
+          onChange={handleKey}
+        />
         <button type="submit">Sign Up</button>
       </form>
 

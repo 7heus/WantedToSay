@@ -23,20 +23,20 @@ class AuthService {
     });
   }
 
-  login = (requestBody) => {
-    return this.api.post("/auth/login", requestBody);
+  login = async (requestBody) => {
+    return await this.api.post("/auth/login", requestBody);
     // same as
     // return axios.post("http://localhost:3000/auth/login");
   };
 
-  signup = (requestBody) => {
-    return this.api.post("/auth/signup", requestBody);
+  signup = async (requestBody) => {
+    return await this.api.post("/auth/signup", requestBody);
     // same as
     // return axios.post("http://localhost:3000/auth/singup");
   };
 
-  verify = () => {
-    return this.api.get("/auth/verify");
+  verify = async () => {
+    return await this.api.get("/auth/verify");
     // same as
     // return axios.post("http://localhost:3000/auth/verify");
   };
