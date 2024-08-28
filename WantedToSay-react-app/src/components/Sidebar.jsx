@@ -1,8 +1,10 @@
 import "./Sidebar.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 export default function Sidebar({ boolean }) {
+  const { user } = useContext(AuthContext);
   const [isVisible, setIsVisible] = useState(boolean);
 
   useEffect(() => {
@@ -23,23 +25,31 @@ export default function Sidebar({ boolean }) {
       to: "/",
     },
 
-    {
-      name: "Sign Up",
-      to: "/signup",
-    },
-    
-    {
-      name: "Login",
-      to: "/login",
-    },
-    
+    !user
+      ? {
+          name: "Sign Up",
+          to: "/signup",
+        }
+      : "",
+
+    !user
+      ? {
+          name: "Login",
+          to: "/login",
+        }
+      : "",
+    user
+      ? {
+          name: "Profile",
+          to: "/profile",
+        }
+      : "",
+
     {
       name: "About Us",
       to: "/about",
     },
   ];
-
-  useEffect(() => {}, [boolean]);
 
   return (
     <div
@@ -48,11 +58,13 @@ export default function Sidebar({ boolean }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {items.map((x, index) => (
-        <Link key={index} to={x.to} className="links">
-          <p>{x.name}</p>
-        </Link>
-      ))}
+      {items
+        .filter((x) => x)
+        .map((x, index) => (
+          <Link key={index} to={x.to} className="links">
+            <p>{x.name}</p>
+          </Link>
+        ))}
     </div>
   );
 }
