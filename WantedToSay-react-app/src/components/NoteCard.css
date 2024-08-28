@@ -41,7 +41,12 @@
   padding: 0;
   text-align: center;
   overflow: auto;
-  text-wrap: wrap;
+  filter: blur(3px);
+  transition: filter 0.15s ease-in-out;
+}
+
+.Card:hover .content {
+  filter: blur(0px);
 }
 
 .inner-box {
