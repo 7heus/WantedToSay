@@ -45,18 +45,17 @@ export const getUserKey = async (userId) => {
 };
 
 export const decryptMessages = async (data, secretKey) => {
-  console.log(data);
   try {
     const response = await axios.post(`${urlString}/messages/decrypt`, {
       secretKey: secretKey,
       data: [data],
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
-    console.error(error);
+    console.error("Error decrypting messages:", error);
   }
 };
+
 
 export const decryptMessage = async (data, secretKey) => {
   try {

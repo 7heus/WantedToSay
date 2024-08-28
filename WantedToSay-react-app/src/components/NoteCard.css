@@ -1,0 +1,47 @@
+/* Container for the card rows */
+.cards-container {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+    gap: 50px; /* Space between cards */
+    padding: 20px; /* Padding around the container */
+    box-sizing: border-box; /* Include padding in the element's total width/height */
+    justify-content: center; /* Align items to the start of the row */
+    margin-top: 25px;
+  }
+  
+  /* Card styling */
+  .Card {
+    background-color: #ffffff; /* White background */
+    border: 2px solid #ddd; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 16px; /* Padding inside the card */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit text color */
+    width: 250px; /* Fixed width */
+    height: 300px; /* Fixed height, slightly more than width */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Align children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    overflow: hidden; /* Hide overflow content */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
+  }
+  
+  .Card:hover {
+    transform: translateY(-5px); /* Lift the card on hover */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+  }
+  
+  .Card .content {
+    font-size: 16px; /* Font size */
+    color: #333; /* Dark grey text color */
+    line-height: 1.5; /* Line height for readability */
+    word-wrap: break-word; /* Break long words */
+    margin: 0; /* Remove default margin from paragraphs */
+    padding: 0; /* Remove default padding from paragraphs */
+    text-align: center; /* Center text horizontally */
+    overflow: hidden; /* Hide overflow text */
+  }
+  
