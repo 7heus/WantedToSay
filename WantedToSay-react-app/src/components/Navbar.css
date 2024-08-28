@@ -12,4 +12,19 @@
     z-index: 1000; /* Ensures the navbar stays on top of other elements */
     height: 75px; /* Set a fixed height for the navbar */
     box-sizing: border-box; /* Includes padding and border in the element's width and height */
-}
+  }
+  .Navbar button {
+    background-color: #555; /* Dark background for buttons */
+    color: white; /* White text color for buttons */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding inside buttons */
+    margin: 0 10px; /* Space between buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Slightly rounded corners */
+  }
+  .Navbar button:hover {
+    background-color: #777; /* Lighter background on hover */
+  }
+  .SignUp {
+    background-color: aqua;
+  }
