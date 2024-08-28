@@ -1,58 +1,59 @@
 .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    padding: 20px;
-    box-sizing: border-box;
-    justify-content: center;
-    margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 20px;
+  box-sizing: border-box;
+  justify-content: center;
+  margin-top: 25px;
 }
 
 .Card {
-    background-color: #ffffff;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    text-decoration: none;
-    color: inherit;
-    width: 250px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    overflow: hidden;
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .Card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .Card .content {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.5;
-    word-wrap: break-word;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    overflow: auto;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow: auto;
+  text-wrap: wrap;
 }
 
 .inner-box {
-    background-color: #f1f1f1;
-    border: 2px solid #ddd;
-    border-radius: 4px;
-    padding: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    width: 75%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
+  background-color: #f1f1f1;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 75%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
 }
