@@ -46,7 +46,12 @@ export default function Sidebar({ boolean }) {
       : "",
 
     {
-      name: "About Us",
+      name: "WantedToSay",
+      to: "/wantedtosay",
+    },
+
+    {
+      name: "Developing team",
       to: "/about",
     },
   ];

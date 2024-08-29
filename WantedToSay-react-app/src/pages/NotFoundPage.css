@@ -1,6 +1,9 @@
-.notFoundPic{
+.notFoundPic {
     position: fixed;
-    left: 500px;
-    top: 150px;
-    width: 30vw;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    height: calc(100% - 60px);
+    object-fit: cover;
+    z-index: -1;
 }
