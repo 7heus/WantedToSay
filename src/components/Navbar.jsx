@@ -13,13 +13,13 @@ function Navbar() {
       <Link to="/">
         <button>Home</button>
       </Link>
-
+      <div className="button-group">
       {!isLoggedIn && (
         <>
           {pathname !== "/signup" && pathname !== "/login" && (
             <>
               <Link to="/signup">
-                <button>Sign Up</button>
+                <button className="SignUpBtn">Sign Up</button>
               </Link>
               {pathname !== "/login" && (
                 <Link to="/login">
@@ -35,7 +35,8 @@ function Navbar() {
           <span>Welcome, {user && user.name}</span>
           <button onClick={logOutUser}>Logout</button>
         </>
-      )}
+        )}
+      </div>
     </nav>
   );
 }
