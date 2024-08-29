@@ -10,6 +10,7 @@ import IsAnon from "./components/isAnon";
 import AboutUs from "./pages/AboutUs";
 import NotFoundPage from "./pages/NotFoundPage";
 import UserProfile from "./pages/UserProfile";
+import VerifyUser from "./pages/VerifyEmail";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/email/verify/:userId" element={<VerifyUser />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 

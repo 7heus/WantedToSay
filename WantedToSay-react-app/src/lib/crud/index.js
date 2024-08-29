@@ -10,3 +10,18 @@ export const updateUser = async (id, data) => {
     console.error(error);
   }
 };
+
+export const verifyEmail = async (id) => {
+  try {
+    if (!id) return;
+    const response = await axios.post(
+      `http://localhost:3000/auth/email/verify`,
+      {
+        _id: id,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
