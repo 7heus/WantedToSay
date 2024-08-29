@@ -1,14 +1,14 @@
 .sidebar {
     position: fixed;
     width: 15vw;
-    background-color: #5c676a;
+    background-color: black;
     height: calc(100% - 80px);
     top: 80px;
     transition: right 1s;
     right: 99.9%;
     z-index: 900;
     overflow-y: auto;
-    opacity: 0.8;
+    opacity: 0.5;
   }
   
   .links {
@@ -23,7 +23,7 @@
   .links:hover {
     color: #ffffff; /* Brighter white text color */
     text-shadow: 0 0 10px #ffffff; /* Increased white glow effect */
-    background-color: #646cff; /* Semi-transparent background color */
+    background-color: purple; /* Semi-transparent background color */
     font-weight: bold; /* Make text bold for better visibility */
   }
   
