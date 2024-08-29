@@ -1,13 +1,4 @@
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  padding: 20px;
-  box-sizing: border-box;
-  justify-content: center;
-  margin-top: 25px;
-}
-
+/* NoteCard.css */
 .Card {
   background-color: #ffffff;
   border: 2px solid #ddd;

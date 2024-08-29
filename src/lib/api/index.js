@@ -37,7 +37,9 @@ export const postMessage = async (content, encryptionKey, recipient) => {
 
 export const getUserKey = async (userId) => {
   try {
-    const response = await axios.get(`${urlString}/users/${userId}`);
+    const response = await axios.get(
+      `$http://localhost:3000/auth/users/${userId}`
+    );
     return response.data.uniqueKey;
   } catch (error) {
     console.error(error);
@@ -55,7 +57,6 @@ export const decryptMessages = async (data, secretKey) => {
     console.error("Error decrypting messages:", error);
   }
 };
-
 
 export const decryptMessage = async (data, secretKey) => {
   try {
