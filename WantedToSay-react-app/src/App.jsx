@@ -13,6 +13,8 @@ import UserProfile from "./pages/UserProfile";
 import VerifyUser from "./pages/VerifyEmail";
 import AboutTheProject from "./pages/AboutTheProject";
 
+const noFooterPaths = ["/signup", "/login"];
+
 function App() {
   return (
     <div className="App">
@@ -43,8 +45,7 @@ function App() {
       </Routes>
 
       <Sidebar />
-
-      <Footer />
+      {!noFooterPaths.includes(location.pathname) && <Footer />}
     </div>
   );
 }
