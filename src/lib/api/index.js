@@ -56,7 +56,6 @@ export const decryptMessages = async (data, secretKey) => {
   }
 };
 
-
 export const decryptMessage = async (data, secretKey) => {
   try {
     const response = await axios.post(
