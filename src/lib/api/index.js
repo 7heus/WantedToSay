@@ -21,11 +21,12 @@ export const getQueryMessage = async (query) => {
   }
 };
 
-export const postMessage = async (content, encryptionKey, recipient) => {
+export const postMessage = async (content, encryptionKey, recipient, color) => {
   const formattedData = {
     receiver: recipient,
     content: content,
     secretKey: encryptionKey,
+    color,
   };
   try {
     const response = await axios.post(`${urlString}/messages`, formattedData);

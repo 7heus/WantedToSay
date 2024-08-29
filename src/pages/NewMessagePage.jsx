@@ -68,7 +68,7 @@ export default NewMessagePage; */
 }
 
 import React, { useContext, useState, useEffect } from "react";
-import messageService from "../services/auth.message.service";
+import { postMessage } from "../lib/api";
 import { useNavigate } from "react-router-dom";
 import "./NewMessagePage.css";
 import { AuthContext } from "../context/auth.context";
@@ -77,16 +77,11 @@ import { getUserKey } from "../lib/api";
 function NewMessagePage() {
   const [recipient, setRecipient] = useState("");
   const [messageContent, setMessageContent] = useState("");
-  const [color, setColor] = useState(""); // Optional color field
+  const [color, setColor] = useState("white"); // Optional color field
   const [errorMessage, setErrorMessage] = useState("");
-  const [secretKey, setSecretKey] = useState("");
   const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
-
-  useEffect(() => {
-    if (user) getUserKey(user._id).then((key) => console.log(key));
-  }, [user]);
 
   const handleRecipientChange = (e) => setRecipient(e.target.value);
   const handleMessageContentChange = (e) => setMessageContent(e.target.value);
@@ -100,22 +95,10 @@ function NewMessagePage() {
       return;
     }
     if (user) {
-      const messageData = {
-        secretKey: secretKey,
-        receiver: recipient,
-        content: messageContent,
-        color: color,
-        // Send null if not provided
-      };
-      console.log(messageData);
-
-      messageService
-        .sendMessage(messageData)
-        .then(() => {
-          navigate("/messages"); // Redirect to the messages page after sending the message
-        })
-        .catch((error) => {
-          console.error("Error sending message:", error);
+      postMessage(messageContent, user.uniqueKey, recipient, color)
+        .then(() => navigate("/messages"))
+        .catch((err) => {
+          console.error(err);
           setErrorMessage("Failed to send message.");
         });
     }
