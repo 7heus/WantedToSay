@@ -11,6 +11,8 @@ import AboutUs from "./pages/AboutUs";
 import NotFoundPage from "./pages/NotFoundPage";
 import UserProfile from "./pages/UserProfile";
 
+const noFooterPaths = ["/signup", "/login"];
+
 function App() {
   return (
     <div className="App">
@@ -39,8 +41,7 @@ function App() {
       </Routes>
 
       <Sidebar />
-
-      <Footer />
+      {!noFooterPaths.includes(location.pathname) && <Footer />}
     </div>
   );
 }

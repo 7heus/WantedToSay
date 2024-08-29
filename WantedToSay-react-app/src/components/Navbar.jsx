@@ -1,10 +1,12 @@
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const location = useLocation();
+  const { pathname } = location;
 
   return (
     <nav className="Navbar">
@@ -14,12 +16,18 @@ function Navbar() {
 
       {!isLoggedIn && (
         <>
-          <Link to="/signup">
-            <button>Sign Up</button>
-          </Link>
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
+          {pathname !== "/signup" && pathname !== "/login" && (
+            <>
+              <Link to="/signup">
+                <button>Sign Up</button>
+              </Link>
+              {pathname !== "/login" && (
+                <Link to="/login">
+                  <button>Login</button>
+                </Link>
+              )}
+            </>
+          )}
         </>
       )}
       {isLoggedIn && (
