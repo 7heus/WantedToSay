@@ -106,3 +106,38 @@ export const decryptMessage = async (data, secretKey) => {
     console.error(error);
   }
 };
+
+export const pushReaction = async (commentId, userId) => {
+  try {
+    const response = await axios.put(
+      `${urlString}/comments/${commentId}/reactions`,
+      { userId, action: "push" }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const removeReaction = async (commentId, userId) => {
+  try {
+    const response = await axios.put(
+      `${urlString}/comments/${commentId}/reactions`,
+      { userId, action: "pull" }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const updateCommentContent = async (commentId, content) => {
+  try {
+    const response = await axios.put(`${urlString}/comments/${commentId}`, {
+      content,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

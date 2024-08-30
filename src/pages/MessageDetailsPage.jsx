@@ -93,7 +93,7 @@ function MessageDetailPage() {
         <button onClick={handleCommentSubmit}>Add Comment</button>
         <div className="comments-list">
           {comments.length > 0 ? (
-            comments.map((c, index) => <CommentCard comment={c} />)
+            comments.map((c, index) => <CommentCard comment={c} key={index} />)
           ) : (
             <div>No comments yet.</div>
           )}

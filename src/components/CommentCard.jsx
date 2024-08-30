@@ -1,14 +1,38 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/auth.context";
+import { pushReaction, removeReaction, updateCommentContent } from "../lib/api";
 
 export default function CommentCard({ comment }) {
+  const { user } = useContext(AuthContext);
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
   const [isEditing, setIsEditing] = useState(false);
   const [editedComment, setEditedComment] = useState(comment.content);
+  const [isOwner, setIsOwner] = useState(false);
+
+  useEffect(() => {
+    if (comment.reactions.includes(user._id)) setLiked(true);
+  }, [user]);
+  useEffect(() => setLikeCount(comment.reactions.length), [comment]);
+  useEffect(() => {
+    if (user._id === comment.userPosted) {
+      setIsOwner(true);
+      console.log(isOwner);
+    }
+  }, [user]);
 
   const handleLike = () => {
-    setLiked(!liked);
-    setLikeCount((prevCount) => (liked ? prevCount - 1 : prevCount + 1));
+    if (liked) {
+      removeReaction(comment._id, user._id).then(() => {
+        setLiked(false);
+        setLikeCount((prev) => prev - 1);
+      });
+      return;
+    }
+    pushReaction(comment._id, user._id).then(() => {
+      setLiked(true);
+      setLikeCount((prev) => prev + 1);
+    });
   };
 
   const handleEdit = () => {
@@ -16,9 +40,10 @@ export default function CommentCard({ comment }) {
   };
 
   const handleSave = () => {
-    setIsEditing(false);
     // Here you would typically update the comment content on the server or in state
-    console.log("Saving edited comment:", editedComment);
+    updateCommentContent(comment._id, editedComment).then(() =>
+      setIsEditing(false)
+    );
   };
 
   return (
@@ -41,15 +66,16 @@ export default function CommentCard({ comment }) {
             <HeartIcon liked={liked} />
           </button>
           <span className="like-count">{likeCount}</span>
-          {isEditing ? (
-            <button onClick={handleSave} className="save-button">
-              Save
-            </button>
-          ) : (
-            <button onClick={handleEdit} className="edit-button">
-              Edit
-            </button>
-          )}
+          {isOwner &&
+            (isEditing ? (
+              <button onClick={handleSave} className="save-button">
+                Save
+              </button>
+            ) : (
+              <button onClick={handleEdit} className="edit-button">
+                Edit
+              </button>
+            ))}
         </div>
       </div>
     </div>
