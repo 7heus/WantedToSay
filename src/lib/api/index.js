@@ -10,6 +10,15 @@ export const getMessages = async () => {
   }
 };
 
+export const getCommentsPost = async (postId) => {
+  try {
+    const response = await axios.get(`${urlString}/comments/post/${postId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const getMessageById = async (id) => {
   try {
     const response = await axios.get(`${urlString}/messages/${id}`);
