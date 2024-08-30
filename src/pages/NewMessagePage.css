@@ -37,3 +37,18 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
+
+.sendMessageBtn{
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sendMessageBtn:hover{
+  background-color: #777;
+}

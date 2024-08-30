@@ -42,7 +42,7 @@ function MessagePage() {
         )}
       </div>
 
-      <button onClick={() => navigate("/new-message")} className="SendNewMessageBtn">Send New Message</button>
+      <button onClick={() => navigate("/new-message")} className="sendMessageBtn">Send New Message</button>
     </div>
   );
 }
