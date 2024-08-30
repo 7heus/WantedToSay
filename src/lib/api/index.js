@@ -19,6 +19,20 @@ export const getCommentsPost = async (postId) => {
   }
 };
 
+export const postComment = async (postId, userId, content) => {
+  try {
+    const format = {
+      content,
+      postId,
+      userPosted: userId,
+    };
+    const response = await axios.post(`${urlString}/comments`, format);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const getMessageById = async (id) => {
   try {
     const response = await axios.get(`${urlString}/messages/${id}`);
