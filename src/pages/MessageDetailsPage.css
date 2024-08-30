@@ -1,0 +1,13 @@
+.MessageDetailPage {
+  padding: 20px;
+}
+
+.message-box {
+  border-radius: 8px;
+  padding: 20px;
+  color: black;
+}
+
+.message-box p {
+  margin: 10px 0;
+}

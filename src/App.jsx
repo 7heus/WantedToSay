@@ -14,6 +14,7 @@ import VerifyUser from "./pages/VerifyEmail";
 import AboutTheProject from "./pages/AboutTheProject";
 import MessagePage from "./pages/MessagePage";
 import NewMessagePage from "./pages/NewMessagePage";
+import MessageDetailPage from "./pages/MessageDetailsPage";
 import { AuthProviderWrapper } from "./context/auth.context";
 
 const noFooterPaths = ["/signup", "/login"];
@@ -48,6 +49,7 @@ function App() {
         <Route path="/wantedtosay" element={<AboutTheProject />} />
         <Route path="/messages" element={<MessagePage />} />
         <Route path="/new-message" element={<NewMessagePage />} />
+        <Route path="/messages/:id" element={<MessageDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Sidebar />
