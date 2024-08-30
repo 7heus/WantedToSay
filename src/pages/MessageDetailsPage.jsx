@@ -119,7 +119,6 @@ export default MessageDetailPage; */
 }
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import {
   decryptMessages,
@@ -130,6 +129,7 @@ import {
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import "./MessageDetailsPage.css";
+import CommentCard from "../components/CommentCard";
 
 function MessageDetailPage() {
   const { id } = useParams();
@@ -187,7 +187,7 @@ function MessageDetailPage() {
           .then((data) => {
             setComment("");
             getCommentsPost(id).then((dat) => {
-              setComments((prev) => [...prev, dat]);
+              setComments(dat);
             });
           })
           .finally(() => console.log(comments))
@@ -228,11 +228,7 @@ function MessageDetailPage() {
         <button onClick={handleCommentSubmit}>Add Comment</button>
         <div className="comments-list">
           {comments.length > 0 ? (
-            comments.map((c, index) => (
-              <div key={index} className="comment">
-                {c && c.content}
-              </div>
-            ))
+            comments.map((c, index) => <CommentCard comment={c} />)
           ) : (
             <div>No comments yet.</div>
           )}
