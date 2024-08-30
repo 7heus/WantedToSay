@@ -25,6 +25,7 @@ export const postComment = async (postId, userId, content) => {
       content,
       postId,
       userPosted: userId,
+      reactions: [],
     };
     const response = await axios.post(`${urlString}/comments`, format);
     return response.data;

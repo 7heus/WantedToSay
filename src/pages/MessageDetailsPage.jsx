@@ -121,7 +121,12 @@ export default MessageDetailPage; */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { decryptMessages, getMessageById, postComment } from "../lib/api";
+import {
+  decryptMessages,
+  getCommentsPost,
+  getMessageById,
+  postComment,
+} from "../lib/api";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import "./MessageDetailsPage.css";
@@ -141,7 +146,9 @@ function MessageDetailPage() {
           decryptMessages(msg, user.uniqueKey).then((response) => {
             if (response && response.data && response.data.length > 0) {
               setMessage(response.data[0]);
-              fetchComments(response.data[0]._id);
+              getCommentsPost(id).then((dat) => {
+                setComments(dat);
+              });
             } else {
               setErrorMessage("No message found.");
             }
@@ -154,20 +161,20 @@ function MessageDetailPage() {
     }
   }, [id, user]);
 
-  const fetchComments = async (postId) => {
-    try {
-      const response = await axios.get(`/api/comments/post/${postId}`);
-      if (Array.isArray(response.data)) {
-        setComments(response.data);
-      } else {
-        console.error("Unexpected response format:", response.data);
-        setComments([]);
-      }
-    } catch (error) {
-      console.error("Error fetching comments:", error);
-      setComments([]);
-    }
-  };
+  // const fetchComments = async (postId) => {
+  //   try {
+  //     const response = await axios.get(`/api/comments/post/${postId}`);
+  //     if (Array.isArray(response.data)) {
+  //       setComments(response.data);
+  //     } else {
+  //       console.error("Unexpected response format:", response.data);
+  //       setComments([]);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching comments:", error);
+  //     setComments([]);
+  //   }
+  // };
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
@@ -178,12 +185,13 @@ function MessageDetailPage() {
       try {
         postComment(id, user._id, comment)
           .then((data) => {
-            setComments((prev) => [...prev, data]);
+            setComment("");
+            getCommentsPost(id).then((dat) => {
+              setComments((prev) => [...prev, dat]);
+            });
           })
           .finally(() => console.log(comments))
           .catch((err) => console.error(err));
-        setComment("");
-        fetchComments(message._id);
       } catch (error) {
         console.error("Error adding comment:", error);
         setErrorMessage("Failed to add comment.");
