@@ -21,11 +21,12 @@ export const getQueryMessage = async (query) => {
   }
 };
 
-export const postMessage = async (content, encryptionKey, recipient) => {
+export const postMessage = async (content, encryptionKey, recipient, color) => {
   const formattedData = {
     receiver: recipient,
     content: content,
     secretKey: encryptionKey,
+    color,
   };
   try {
     const response = await axios.post(`${urlString}/messages`, formattedData);
@@ -37,7 +38,9 @@ export const postMessage = async (content, encryptionKey, recipient) => {
 
 export const getUserKey = async (userId) => {
   try {
-    const response = await axios.get(`${urlString}/users/${userId}`);
+    const response = await axios.get(
+      `$http://localhost:3000/auth/users/${userId}`
+    );
     return response.data.uniqueKey;
   } catch (error) {
     console.error(error);

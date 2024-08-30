@@ -1,5 +1,3 @@
-// src/pages/LoginPage.jsx
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -12,9 +10,9 @@ function LoginPage(props) {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  const navigate = useNavigate();
-
   const { storeToken, authenticateUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -31,9 +29,7 @@ function LoginPage(props) {
 
         storeToken(response.data.authToken);
 
-        authenticateUser();
-
-        navigate("/");
+        navigate("/messages");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -47,7 +43,13 @@ function LoginPage(props) {
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleEmail}
+          required
+        />
 
         <label>Password:</label>
         <input
@@ -55,6 +57,7 @@ function LoginPage(props) {
           name="password"
           value={password}
           onChange={handlePassword}
+          required
         />
 
         <button type="submit">Login</button>

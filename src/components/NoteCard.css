@@ -1,13 +1,4 @@
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-  padding: 20px;
-  box-sizing: border-box;
-  justify-content: center;
-  margin-top: 25px;
-}
-
+/* NoteCard.css */
 .Card {
   background-color: #ffffff;
   border: 2px solid #ddd;
@@ -27,6 +18,11 @@
   overflow: hidden;
 }
 
+.Card .to{
+  font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .Card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
@@ -34,6 +30,7 @@
 
 .Card .content {
   font-size: 16px;
+  font-family: Creepster;
   color: #333;
   line-height: 1.5;
   word-wrap: break-word;

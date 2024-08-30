@@ -25,3 +25,13 @@ export const verifyEmail = async (id) => {
     console.error(error);
   }
 };
+
+export const fetchUser = async (id) => {
+  try {
+    if (!id) return;
+    const response = await axios.get(`${urlString}/users/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
