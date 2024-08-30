@@ -10,6 +10,15 @@ export const getMessages = async () => {
   }
 };
 
+export const getMessageById = async (id) => {
+  try {
+    const response = await axios.get(`${urlString}/messages/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const getQueryMessage = async (query) => {
   try {
     const response = await axios.get(
