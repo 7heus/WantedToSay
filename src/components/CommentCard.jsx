@@ -47,36 +47,35 @@ export default function CommentCard({ comment }) {
   };
 
   return (
-    <div className="comment">
-      <p style={{ textAlign: "left" }}>Anonymous commented:</p>
-      <div className="wrapper">
+    <div className="comment-card">
+      <div className="comment-header">
+        <p className="user-name">Anonymous</p>
+      </div>
+      <div className="comment-body">
         {isEditing ? (
           <textarea
             value={editedComment}
             onChange={(e) => setEditedComment(e.target.value)}
+            className="edit-textarea"
           />
         ) : (
-          <p>{editedComment}</p>
+          <p className="comment-text">{editedComment}</p>
         )}
-        <div className="comment-actions">
-          <button
-            onClick={handleLike}
-            className={`like-button ${liked ? "liked" : ""}`}
-          >
-            <HeartIcon liked={liked} />
-          </button>
-          <span className="like-count">{likeCount}</span>
-          {isOwner &&
-            (isEditing ? (
-              <button onClick={handleSave} className="save-button">
-                Save
-              </button>
-            ) : (
-              <button onClick={handleEdit} className="edit-button">
-                Edit
-              </button>
-            ))}
-        </div>
+      </div>
+      <div className="comment-actions">
+        <button onClick={handleLike} className="like-button">
+          <HeartIcon liked={liked} />
+        </button>
+        {isOwner &&
+          (isEditing ? (
+            <button onClick={handleSave} className="save-button">
+              Save
+            </button>
+          ) : (
+            <button onClick={handleEdit} className="edit-button">
+              Edit
+            </button>
+          ))}
       </div>
     </div>
   );
@@ -84,6 +83,8 @@ export default function CommentCard({ comment }) {
 
 function HeartIcon({ liked }) {
   return (
-    <span style={{ color: liked ? "red" : "black" }}>{liked ? "❤️" : "♡"}</span>
+    <span style={{ fontSize: "24px", color: liked ? "red" : "black" }}>
+      {liked ? ":heart:" : "♡"}
+    </span>
   );
 }
