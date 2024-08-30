@@ -2,16 +2,18 @@
   /*import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./NoteCard.css";
-import { decryptMessages } from "../lib/api";
+import { decryptMessages, getUserKey } from "../lib/api";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 export default function NoteCard({ data }) {
-  const { user, uniqueKey } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const [userKey, setUserKey] = useState(null);
   const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(true);
   const decrypt = () => {
-    user &&
-      decryptMessages(data, user.uniqueKey)
+    userKey &&
+      decryptMessages(data, userKey)
         .then((dat) => {
           if (dat && dat.data && dat.data.length > 0) {
             setContent(dat.data[0].content);
@@ -22,32 +24,42 @@ export default function NoteCard({ data }) {
         });
   };
   useEffect(() => {
-    decrypt();
+    user && getUserKey(user._id).then((key) => setUserKey(key));
   }, [user]);
+  useEffect(() => {
+    decrypt();
+    setLoading(false);
+  }, [userKey]);
   useEffect(() => {
     if (content.length >= 50) {
       setContent(`${content.slice(0, 50)} ...`);
     }
   }, [content]);
   return (
-    <Link to={`/messages/${data._id}`}>
-      <div className="Card">
-        <p>{`To: ${data.receiver}`}</p>
-        <div
-          className="inner-box"
-          style={{
-            backgroundColor: data ? data.color : "white",
-          }}
-        >
-          <p
-            className="content"
-            style={{ color: data.color == "white" ? "black" : "white" }}
-          >
-            {content && content}
-          </p>
-        </div>
-      </div>
-    </Link>
+    <>
+      {!loading ? (
+        <Link to={`/messages/${data._id}`}>
+          <div className="Card">
+            <p>{`To: ${data.receiver}`}</p>
+            <div
+              className="inner-box"
+              style={{
+                backgroundColor: data ? data.color : "white",
+              }}
+            >
+              <p
+                className="content"
+                style={{ color: data.color == "white" ? "black" : "white" }}
+              >
+                {content && content}
+              </p>
+            </div>
+          </div>
+        </Link>
+      ) : (
+        "Loading..."
+      )}
+    </>
   );
 }  */
 }

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import { updateUser } from "../lib/crud";
 import "./UserProfile.css";
+import { getUserKey } from "../lib/api";
 
 export default function UserProfile() {
   const { user, update } = useContext(AuthContext);
@@ -27,7 +28,7 @@ export default function UserProfile() {
 
   useEffect(() => {
     if (user) {
-      setUniqueKey(user.uniqueKey);
+      getUserKey(user._id).then((key) => setUniqueKey(key));
       setEmail(user.email);
       setName(user.name);
     }
