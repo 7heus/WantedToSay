@@ -1,4 +1,3 @@
-/* NoteCard.css */
 .Card {
   background-color: #ffffff;
   border: 2px solid #ddd;
@@ -17,6 +16,235 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+
+.Card.dark {
+  background: linear-gradient(135deg, #2c2c2c, #1e1e1e);
+  border: 2px solid #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #e0e0e0;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.Card.cosmic-dream {
+  background-color: #0d47a1;
+  border: 2px solid #303f9f;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #fff;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 20px 20px, #3f51b5 20px, transparent 21px),
+                    radial-gradient(circle at 70px 70px, #1e88e5 20px, transparent 21px);
+  background-size: 80px 80px;
+  background-repeat: repeat;
+}
+
+.Card.nature-escape {
+  background-color: #e8f5e9;
+  border: 2px solid #4caf50;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #333;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: url('https://www.transparenttextures.com/patterns/utsuboco.png');
+}
+
+.Card.retro-pop {
+  background-color: #ffeb3b;
+  border: 2px solid #f44336;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #333;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 20px 20px, #f44336 10px, transparent 11px),
+                    radial-gradient(circle at 50px 50px, #ffeb3b 10px, transparent 11px);
+  background-size: 60px 60px;
+  background-repeat: repeat;
+}
+
+.Card.dragon-ball {
+  background-color: #ffcc00;
+  border: 2px solid #e64a19;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #333;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 30px 30px, #ffeb3b 20px, transparent 22px),
+                    radial-gradient(circle at 80px 80px, #ffeb3b 20px, transparent 22px);
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.Card.pokemon {
+  background-color: #f2f2f2;
+  border: 2px solid #ffcb05;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #333;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 30px 30px, #ffcb05 20px, transparent 22px),
+                    radial-gradient(circle at 70px 70px, #f22 20px, transparent 22px),
+                    radial-gradient(circle at 110px 110px, #3d7dca 20px, transparent 22px);
+  background-size: 100px 100px;
+  background-repeat: repeat;
+}
+
+.Card.naruto {
+  background-color: #f4e6d7;
+  border: 2px solid #ff8c00;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #333;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: url('https://example.com/naruto-scroll-pattern.png');
+  background-size: cover;
+}
+
+.Card.happy {
+  background-color: #ffefb5;
+  border: 2px solid #ffeb3b;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #333;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 20px 20px, #ffeb3b 10px, transparent 12px),
+                    radial-gradient(circle at 60px 60px, #ffeb3b 10px, transparent 12px),
+                    radial-gradient(circle at 100px 100px, #ffeb3b 10px, transparent 12px);
+  background-size: 60px 60px;
+  background-repeat: repeat;
+}
+
+.Card.playful-happy {
+  background-color: #f0f8ff;
+  border: 2px solid #ff69b4;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #333;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 10px 10px, #ffeb3b 10px, transparent 12px),
+                    radial-gradient(circle at 30px 30px, #ff69b4 10px, transparent 12px),
+                    radial-gradient(circle at 50px 50px, #00e676 10px, transparent 12px),
+                    radial-gradient(circle at 70px 70px, #00bcd4 10px, transparent 12px);
+  background-size: 40px 40px;
+  background-repeat: repeat;
+}
+
+.Card.sad {
+  background-color: #e0e0e0;
+  border: 2px solid #9e9e9e;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: #333;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 20px 20px, #b0bec5 10px, transparent 12px),
+                    radial-gradient(circle at 60px 60px, #90a4ae 10px, transparent 12px),
+                    radial-gradient(circle at 100px 100px, #78909c 10px, transparent 12px);
+  background-size: 60px 60px;
+  background-repeat: repeat;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .Card .to{
   font-style: italic;
