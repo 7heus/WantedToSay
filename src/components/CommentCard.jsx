@@ -84,7 +84,7 @@ export default function CommentCard({ comment }) {
 function HeartIcon({ liked }) {
   return (
     <span style={{ fontSize: "24px", color: liked ? "red" : "black" }}>
-      {liked ? ":heart:" : "♡"}
+      {liked ? "❤️" : "♡"}
     </span>
   );
 }
