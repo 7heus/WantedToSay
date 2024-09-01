@@ -1,3 +1,11 @@
+// This component renders a login form where users can enter their email and password.
+// On form submission, it sends a login request to the server via `authService`.
+// If successful, it stores the received JWT token and redirects the user to the "/messages" page.
+// If there's an error, it displays the error message below the form.
+// Providing a link for users to navigate to the sign-up page if they don't have an account yet.
+
+
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
