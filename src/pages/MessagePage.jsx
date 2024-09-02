@@ -1,3 +1,11 @@
+ // Checks if the user is logged in, if not, redirects to the login page.
+ // Fetches messages from the server and handles errors if they occur.
+ // Filters messages based on the search query provided by the user.
+ // Displays the list of messages, a search bar, an error message (if any), 
+ // and a button to navigate to the page for sending a new message.
+
+
+
 import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
