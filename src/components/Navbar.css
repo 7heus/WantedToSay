@@ -46,17 +46,17 @@ body.light {
 
 body.dark {
   background-color: #333333;
-  color: #ffeb3b;
+  color: white;
 }
 
 body.cream {
   background-color: #FFEBBB;
-  color: #ffeb3b;
+  color: black;
 }
 
 body.purple {
   background-color: purple;
-  color: #ffeb3b;
+  color: white;
 }
 
 body.yellow {
@@ -66,5 +66,5 @@ body.yellow {
 
 body.red {
   background-color: red;
-  color: black;
+  color: white;
 }

@@ -1,54 +1,88 @@
-/* src/pages/NewMessagePage.css */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F4EF;
+}
 .NewMessagePage {
-  max-width: 400px;
-  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  background-color: #ffffff;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
-
-.NewMessagePage h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.form-group input,
-.form-group textarea {
+.NewMessagePage form {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  max-width: 600px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-
-.error-message {
+.NewMessagePage form h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+}
+.NewMessagePage .error-message {
   color: red;
   margin-bottom: 20px;
+  font-size: 14px;
   text-align: center;
 }
-
-
-.sendMessageBtn{
-  background-color: #555;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;
-  border-radius: 5px;
+.NewMessagePage .form-group {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
-
-.sendMessageBtn:hover{
-  background-color: #777;
+.NewMessagePage label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: 500;
+  text-align: left;
+  display: block;
+}
+.NewMessagePage input,
+.NewMessagePage textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  color: #495057;
+}
+.NewMessagePage input:focus,
+.NewMessagePage textarea:focus {
+  border-color: #80BDFF;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+.NewMessagePage button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4B593B;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+.NewMessagePage button:hover {
+  background-color: #3B4A2C;
 }
