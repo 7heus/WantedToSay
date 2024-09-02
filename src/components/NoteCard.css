@@ -292,14 +292,20 @@
 
 .theme-toggle-button{
   background-color: #555;
+  opacity: 0.1;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
   border: none;
-  padding: 10px 20px;
-  margin: 0 10px;
+  padding: none;
+  margin: none;
   cursor: pointer;
   border-radius: 5px;
 }
 
 .theme-toggle-button:hover{
   background-color: #777;
+  opacity: 1;
 }
