@@ -1,6 +1,6 @@
 import "./Navbar.css";
-import { Link, useLocation } from "react-router-dom";
-import { useContext } from "react";
+import { Link, useAsyncError, useLocation } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
@@ -8,12 +8,33 @@ function Navbar() {
   const location = useLocation();
   const { pathname } = location;
 
+
+
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  const toggleTheme = () => {
+    const themes = ["dark", "light", "cream", "purple", "yellow", "red"];
+    const currentIndex = themes.indexOf(theme);
+    const nextIndex = (currentIndex + 1) % themes.length;
+    setTheme(themes[nextIndex]);
+  };
+  
+
+
   return (
     <nav className="Navbar">
       <Link to="/">
         <button>Home</button>
       </Link>
       <div className="button-group">
+
+      <button className={`themeBtn ${theme}`}
+          onClick={toggleTheme}>Theme</button>
+        
       {!isLoggedIn && (
         <>
           {pathname !== "/signup" && pathname !== "/login" && (
