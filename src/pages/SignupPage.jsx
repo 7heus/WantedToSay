@@ -16,7 +16,9 @@ function SignupPage(props) {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [uniqueKey, setUniqueKey] = useState("c001k3y");
-  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [selectedAvatar, setSelectedAvatar] = useState(
+    "../assets/avatars/avatar1.png"
+  );
 
   const navigate = useNavigate();
 
@@ -40,7 +42,7 @@ function SignupPage(props) {
       password,
       name,
       uniqueKey,
-      avatar: selectedAvatar,
+      avatar: `${selectedAvatar}`,
     };
 
     // If the POST request is a successful redirect to the login page
@@ -49,6 +51,7 @@ function SignupPage(props) {
       .then((response) => {
         navigate("/login");
       })
+      .finally(() => console.log(selectedAvatar))
       .catch((error) => {
         const errorDescription =
           error.response?.data?.message || "An unknown error occured";
