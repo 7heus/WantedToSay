@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/auth.context";
+import "./CommentCard.css";
 import { pushReaction, removeReaction, updateCommentContent } from "../lib/api";
 
 export default function CommentCard({ comment }) {
@@ -40,7 +41,6 @@ export default function CommentCard({ comment }) {
   };
 
   const handleSave = () => {
-    // Here you would typically update the comment content on the server or in state
     updateCommentContent(comment._id, editedComment).then(() =>
       setIsEditing(false)
     );
