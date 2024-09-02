@@ -62,7 +62,11 @@ function MessagePage() {
     <div className="MessagePage">
       <h1>Messages</h1>
       <div className="page-buttons">
-        <button disabled={currentPage === 1 ? true : false} onClick={prevPage}>
+        <button
+          disabled={currentPage === 1 ? true : false}
+          onClick={prevPage}
+          style={{ userSelect: "none" }}
+        >
           {"<"}
         </button>
         <span>{currentPage}</span>
@@ -71,6 +75,7 @@ function MessagePage() {
           disabled={
             currentPage * ITEMS_PER_PAGE >= messages.length ? true : false
           }
+          style={{ userSelect: "none" }}
         >
           {">"}
         </button>
