@@ -1,8 +1,11 @@
-.page button{
-    background-color: orange;
+
+.card{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border: solid white;
+    border-radius: 7.5px;
 }
-
-
 
 
 .page button{
@@ -18,3 +21,13 @@
 .page button:hover{
     background-color: #777;
 }
+
+
+.page input{
+    width: 300px;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+}
+
+
