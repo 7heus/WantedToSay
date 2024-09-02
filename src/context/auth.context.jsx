@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import authService from "../services/auth.service";
+import { useNavigate } from "react-router-dom";
+import { fetchUser } from "../lib/crud";
 
 const AuthContext = createContext();
 
@@ -7,10 +9,17 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const nav = useNavigate();
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
     authenticateUser(); // Verify token immediately after storing
+  };
+
+  const update = (id) => {
+    fetchUser(id).then((data) => {
+      setUser(data);
+    });
   };
 
   const authenticateUser = () => {
@@ -21,7 +30,7 @@ function AuthProviderWrapper(props) {
         .verify(storedToken) // Pass the token to the verify method
         .then((response) => {
           setIsLoggedIn(true);
-          setUser(response.data);
+          fetchUser(response.data._id).then((dat) => setUser(dat));
         })
         .catch(() => {
           setIsLoggedIn(false);
@@ -42,6 +51,7 @@ function AuthProviderWrapper(props) {
   const logOutUser = () => {
     removeToken();
     authenticateUser(); // Update state after logging out
+    nav("/");
   };
 
   useEffect(() => {
@@ -57,6 +67,7 @@ function AuthProviderWrapper(props) {
         storeToken,
         authenticateUser,
         logOutUser,
+        update,
       }}
     >
       {props.children}

@@ -12,7 +12,11 @@ function NewMessagePage() {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const { user } = useContext(AuthContext);
+  const { user, isLoggedIn } = useContext(AuthContext);
+  if (!isLoggedIn) {
+    navigate("/login");
+    return;
+  }
 
   const handleRecipientChange = (e) => setRecipient(e.target.value);
   const handleMessageContentChange = (e) => setMessageContent(e.target.value);
@@ -64,7 +68,7 @@ function NewMessagePage() {
         <button
           type="submit"
           style={{ visibility: !user ? "hidden" : "visible" }}
-        >
+        className="sendMessageBtn">
           Send Message
         </button>
       </form>

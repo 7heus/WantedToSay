@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   decryptMessages,
   getCommentsPost,
@@ -13,11 +13,19 @@ import CommentCard from "../components/CommentCard";
 
 function MessageDetailPage() {
   const { id } = useParams();
-  const { user } = useContext(AuthContext);
+  const { user, isLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
+  const [charCount, setCharCount] = useState(0);
+  const nav = useNavigate();
+  const MAX_CHARS = 500;
+
+  if (!isLoggedIn) {
+    nav("/login");
+    return;
+  }
 
   useEffect(() => {
     if (user) {
@@ -43,6 +51,7 @@ function MessageDetailPage() {
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
+    setCharCount(e.target.value.length);
   };
 
   const handleCommentSubmit = async () => {
@@ -55,7 +64,6 @@ function MessageDetailPage() {
               setComments(dat);
             });
           })
-          .finally(() => console.log(comments))
           .catch((err) => console.error(err));
       } catch (error) {
         console.error("Error adding comment:", error);
@@ -87,7 +95,15 @@ function MessageDetailPage() {
           value={comment}
           onChange={handleCommentChange}
           placeholder="Add a comment..."
+          style={{ resize: "none" }}
+          maxLength={MAX_CHARS}
         />
+        <label style={{ color: charCount > MAX_CHARS && "red" }}>
+          {charCount <= MAX_CHARS
+            ? `${charCount}/${MAX_CHARS}`
+            : `${MAX_CHARS - charCount}`}
+        </label>
+        <br />
         <button onClick={handleCommentSubmit}>Add Comment</button>
         <div className="comments-list">
           {comments.length > 0 ? (

@@ -39,6 +39,7 @@
 .comment-body {
   margin-bottom: 15px;
   flex: 1;
+  overflow-wrap: break-word;
 }
 
 .comment-text {

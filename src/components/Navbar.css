@@ -1,5 +1,6 @@
 .Navbar {
   width: 100%;
+<<<<<<< HEAD
   background-color: #333; /* Dark background for the navbar */
   color: white; /* White text color */
   display: flex; /* Flexbox layout for easy alignment */
@@ -13,6 +14,21 @@
   height: 75px; /* Set a fixed height for the navbar */
   padding: 0 20px; /* Padding for spacing */
   box-sizing: border-box; /* Includes padding and border in width and height */
+=======
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 75px;
+  padding: 0 20px;
+  box-sizing: border-box;
+>>>>>>> origin/messageDetails
 }
 
 .navbar-right {
@@ -28,15 +44,24 @@
 }
 
 .Navbar button {
-  background-color: #555; /* Dark background for buttons */
-  color: white; /* White text color */
-  border: none; /* Remove default border */
-  padding: 10px 20px; /* Padding inside buttons */
-  margin: 0 10px; /* Space between buttons */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 5px; /* Slightly rounded corners */
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .Navbar button:hover {
-  background-color: #777; /* Lighter background on hover */
+  background-color: #777;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+}
+
+.Navbar .LogoutBtn {
+  width: auto;
 }

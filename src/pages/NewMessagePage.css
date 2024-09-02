@@ -37,13 +37,18 @@ body {
   width: 100%;
 }
 
+<<<<<<< HEAD
 .NewMessagePage .error-message {
+=======
+.error-message {
+>>>>>>> origin/messageDetails
   color: red;
   margin-bottom: 20px;
   font-size: 14px;
   text-align: center;
 }
 
+<<<<<<< HEAD
 .NewMessagePage .form-group {
   width: 100%;
   margin-bottom: 20px;
@@ -96,3 +101,19 @@ body {
 .NewMessagePage button:hover {
   background-color: #3b4a2c;
 }
+=======
+
+.sendMessageBtn{
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sendMessageBtn:hover{
+  background-color: #777;
+}
+>>>>>>> origin/messageDetails
