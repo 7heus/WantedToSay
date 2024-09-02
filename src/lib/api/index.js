@@ -141,3 +141,12 @@ export const updateCommentContent = async (commentId, content) => {
     console.error(error);
   }
 };
+
+export const deleteComment = async (commentId) => {
+  try {
+    const response = await axios.delete(`${urlString}/comments/${commentId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

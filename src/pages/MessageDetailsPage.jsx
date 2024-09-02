@@ -19,16 +19,12 @@ function MessageDetailPage() {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [charCount, setCharCount] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
   const nav = useNavigate();
   const MAX_CHARS = 500;
 
-  if (!isLoggedIn) {
-    nav("/login");
-    return;
-  }
-
   useEffect(() => {
-    if (user) {
+    if (user && isLoggedIn) {
       getMessageById(id)
         .then((msg) => {
           decryptMessages(msg, user.uniqueKey).then((response) => {
@@ -46,8 +42,12 @@ function MessageDetailPage() {
           console.error("Failed to load message:", error);
           setErrorMessage("Failed to load message.");
         });
+      setIsLoaded(true);
+    } else {
+      nav("/login");
+      return;
     }
-  }, [id, user]);
+  }, [user, isLoggedIn]);
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);

@@ -1,7 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import "./CommentCard.css";
-import { pushReaction, removeReaction, updateCommentContent } from "../lib/api";
+import {
+  pushReaction,
+  removeReaction,
+  updateCommentContent,
+  deleteComment,
+} from "../lib/api";
+import { getCommentsPost } from "../lib/api";
 
 export default function CommentCard({ comment }) {
   const { user } = useContext(AuthContext);
@@ -10,6 +16,7 @@ export default function CommentCard({ comment }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedComment, setEditedComment] = useState(comment.content);
   const [isOwner, setIsOwner] = useState(false);
+  const [isRemoved, setIsRemoved] = useState(false);
 
   useEffect(() => {
     if (comment.reactions.includes(user._id)) setLiked(true);
@@ -41,43 +48,52 @@ export default function CommentCard({ comment }) {
   };
 
   const handleSave = () => {
+    if (editedComment.length === 0) {
+      setIsRemoved(true);
+      deleteComment(comment._id);
+      return;
+    }
     updateCommentContent(comment._id, editedComment).then(() =>
       setIsEditing(false)
     );
   };
 
   return (
-    <div className="comment-card">
-      <div className="comment-header">
-        <p className="user-name">Anonymous</p>
-      </div>
-      <div className="comment-body">
-        {isEditing ? (
-          <textarea
-            value={editedComment}
-            onChange={(e) => setEditedComment(e.target.value)}
-            className="edit-textarea"
-          />
-        ) : (
-          <p className="comment-text">{editedComment}</p>
-        )}
-      </div>
-      <div className="comment-actions">
-        <button onClick={handleLike} className="like-button">
-          <HeartIcon liked={liked} />
-        </button>
-        {isOwner &&
-          (isEditing ? (
-            <button onClick={handleSave} className="save-button">
-              Save
+    <>
+      {!isRemoved && (
+        <div className="comment-card">
+          <div className="comment-header">
+            <p className="user-name">Anonymous</p>
+          </div>
+          <div className="comment-body">
+            {isEditing ? (
+              <textarea
+                value={editedComment}
+                onChange={(e) => setEditedComment(e.target.value)}
+                className="edit-textarea"
+              />
+            ) : (
+              <p className="comment-text">{editedComment}</p>
+            )}
+          </div>
+          <div className="comment-actions">
+            <button onClick={handleLike} className="like-button">
+              <HeartIcon liked={liked} />
             </button>
-          ) : (
-            <button onClick={handleEdit} className="edit-button">
-              Edit
-            </button>
-          ))}
-      </div>
-    </div>
+            {isOwner &&
+              (isEditing ? (
+                <button onClick={handleSave} className="save-button">
+                  Save
+                </button>
+              ) : (
+                <button onClick={handleEdit} className="edit-button">
+                  Edit
+                </button>
+              ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
