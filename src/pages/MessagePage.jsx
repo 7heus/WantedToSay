@@ -5,25 +5,36 @@ import { AuthContext } from "../context/auth.context";
 import messageService from "../services/auth.message.service";
 import "./MessagePage.css";
 import MessageComponent from "../components/MessagesComp";
+import { decryptMessages } from "../lib/api";
 
 function MessagePage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [messages, setMessages] = useState([]);
   const [display, setDisplay] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const ITEMS_PER_PAGE = 4;
 
   const fetchPageData = () => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = currentPage * ITEMS_PER_PAGE;
+    console.log(messages);
 
-    if (messages.length >= startIndex) {
-      setDisplay(messages.slice(startIndex, endIndex));
+    if (user && messages.length >= startIndex) {
+      decryptMessages(messages.slice(startIndex, endIndex), user.uniqueKey)
+        .then((dat) => {
+          if (dat && dat.data && dat.data.length > 0) {
+            setDisplay(dat.data);
+          }
+        })
+        .catch((error) => {
+          console.error("Error decrypting message:", error);
+        });
     }
   };
   useEffect(() => fetchPageData(), [messages, currentPage]);
+  useEffect(() => console.log(display), [display]);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -38,16 +49,14 @@ function MessagePage() {
           console.error("Error fetching messages:", error);
           setErrorMessage("Failed to load messages.");
         });
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = currentPage * ITEMS_PER_PAGE;
+      setDisplay(messages.slice(startIndex, endIndex));
     }
   }, [isLoggedIn, navigate]);
 
   const nextPage = (e) => {
     if (messages.length > currentPage * display.length) {
-      // const startIndex = currentPage * ITEMS_PER_PAGE - ITEMS_PER_PAGE;
-      // const endIndex = currentPage * ITEMS_PER_PAGE;
-
-      // setDisplay(messages.slice(startIndex, endIndex));
-
       setCurrentPage((prev) => prev + 1);
     }
   };

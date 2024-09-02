@@ -84,7 +84,7 @@ export const decryptMessages = async (data, secretKey) => {
   try {
     const response = await axios.post(`${urlString}/messages/decrypt`, {
       secretKey: secretKey,
-      data: [data],
+      data: data,
     });
     return response.data;
   } catch (error) {
