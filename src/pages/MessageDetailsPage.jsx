@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   decryptMessages,
   getCommentsPost,
@@ -13,13 +13,19 @@ import CommentCard from "../components/CommentCard";
 
 function MessageDetailPage() {
   const { id } = useParams();
-  const { user } = useContext(AuthContext);
+  const { user, isLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [charCount, setCharCount] = useState(0);
+  const nav = useNavigate();
   const MAX_CHARS = 500;
+
+  if (!isLoggedIn) {
+    nav("/login");
+    return;
+  }
 
   useEffect(() => {
     if (user) {

@@ -3,12 +3,19 @@ import { useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import { updateUser } from "../lib/crud";
 import "./UserProfile.css";
+import { useNavigate } from "react-router-dom";
 
 export default function UserProfile() {
-  const { user } = useContext(AuthContext);
+  const { user, isLoggedIn } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [uniqueKey, setUniqueKey] = useState("");
+  const nav = useNavigate();
+
+  if (!isLoggedIn) {
+    nav("/login");
+    return;
+  }
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
