@@ -110,3 +110,31 @@
 .SignupPage a:hover {
   text-decoration: underline; /* Underline on hover */
 }
+
+/* Style the avatar selection section */
+.avatar-selection {
+  display: flex;
+  gap: 10px; /* Space between avatars */
+  margin-bottom: 15px; /* Space below the avatar selection */
+  justify-content: center; /* Center avatars horizontally */
+}
+
+/* Style individual avatars */
+.avatar {
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  border-radius: 50%; /* Make avatars circular */
+  border: 2px solid transparent; /* Border for selected avatar */
+  cursor: pointer;
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Style for selected avatar */
+.avatar.selected {
+  border-color: #0095f6; /* Blue border for selected avatar */
+}
+
+/* Hover state for avatars */
+.avatar:hover {
+  border-color: #ddd; /* Light border on hover */
+}

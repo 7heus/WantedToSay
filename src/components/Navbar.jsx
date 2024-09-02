@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
@@ -31,10 +32,18 @@ function Navbar() {
         </>
       )}
       {isLoggedIn && (
-        <>
-          <span>Welcome, {user && user.name}</span>
+        <div className="navbar-right">
+          {user?.avatar ? (
+            <img
+              src={user.avatar}
+              alt="User Avatar"
+              className="navbar-avatar"
+            />
+          ) : (
+            <span>Welcome, {user?.name}</span>
+          )}
           <button onClick={logOutUser}>Logout</button>
-        </>
+        </div>
       )}
     </nav>
   );
