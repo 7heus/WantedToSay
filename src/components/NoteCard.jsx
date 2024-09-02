@@ -75,8 +75,9 @@ export default function NoteCard({ data }) {
           </div>
         </div>
       </Link>
-      <button className="theme-toggle-button" onClick={toggleTheme}>
-        Theme
+      <button className="theme-toggle-button" onClick={toggleTheme}><svg width="25" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12c0 4.41 3.59 8 8 8 4.41 0 8-3.59 8-8 0-4.41-3.59-8-8-8zm0 14.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0-5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 1.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-9 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm9-5.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+        </svg>
       </button>
     </div>
   );
