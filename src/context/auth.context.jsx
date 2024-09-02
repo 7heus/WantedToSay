@@ -85,6 +85,7 @@ export { AuthContext, AuthProviderWrapper }; */
 import { createContext, useState, useEffect } from "react";
 import authService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
+import { fetchUser } from "../lib/crud";
 
 const AuthContext = createContext();
 
@@ -99,6 +100,12 @@ function AuthProviderWrapper(props) {
     authenticateUser(); // Verify token immediately after storing
   };
 
+  const update = (id) => {
+    fetchUser(id).then((data) => {
+      setUser(data);
+    });
+  };
+
   const authenticateUser = () => {
     const storedToken = localStorage.getItem("authToken");
 
@@ -107,7 +114,7 @@ function AuthProviderWrapper(props) {
         .verify(storedToken) // Pass the token to the verify method
         .then((response) => {
           setIsLoggedIn(true);
-          setUser(response.data);
+          fetchUser(response.data._id).then((dat) => setUser(dat));
         })
         .catch(() => {
           setIsLoggedIn(false);
@@ -144,6 +151,7 @@ function AuthProviderWrapper(props) {
         storeToken,
         authenticateUser,
         logOutUser,
+        update,
       }}
     >
       {props.children}

@@ -6,7 +6,8 @@ import "./UserProfile.css";
 import { useNavigate } from "react-router-dom";
 
 export default function UserProfile() {
-  const { user, isLoggedIn } = useContext(AuthContext);
+  const { user, isLoggedIn, update } = useContext(AuthContext);
+import { getUserKey } from "../lib/api";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [uniqueKey, setUniqueKey] = useState("");
@@ -28,13 +29,13 @@ export default function UserProfile() {
       email,
       uniqueKey: uniqueKey ? uniqueKey : "c001k3y",
     };
-    updateUser(user._id, formattedData);
+    updateUser(user._id, formattedData).then(() => update(user._id));
     return false;
   };
 
   useEffect(() => {
     if (user) {
-      setUniqueKey(user.uniqueKey);
+      getUserKey(user._id).then((key) => setUniqueKey(key));
       setEmail(user.email);
       setName(user.name);
     }

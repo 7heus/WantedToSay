@@ -16,7 +16,6 @@ import MessagePage from "./pages/MessagePage";
 import NewMessagePage from "./pages/NewMessagePage";
 import MessageDetailPage from "./pages/MessageDetailsPage";
 import { AuthProviderWrapper } from "./context/auth.context";
-
 const noFooterPaths = ["/signup", "/login"];
 
 function App() {

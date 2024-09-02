@@ -3,14 +3,27 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import messageService from "../services/auth.message.service";
-import NoteCard from "../components/NoteCard";
 import "./MessagePage.css";
+import MessageComponent from "../components/MessagesComp";
 
 function MessagePage() {
+  const [currentPage, setCurrentPage] = useState(1);
   const [messages, setMessages] = useState([]);
+  const [display, setDisplay] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const ITEMS_PER_PAGE = 4;
+
+  const fetchPageData = () => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = currentPage * ITEMS_PER_PAGE;
+
+    if (messages.length >= startIndex) {
+      setDisplay(messages.slice(startIndex, endIndex));
+    }
+  };
+  useEffect(() => fetchPageData(), [messages, currentPage]);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -28,21 +41,49 @@ function MessagePage() {
     }
   }, [isLoggedIn, navigate]);
 
+  const nextPage = (e) => {
+    if (messages.length > currentPage * display.length) {
+      // const startIndex = currentPage * ITEMS_PER_PAGE - ITEMS_PER_PAGE;
+      // const endIndex = currentPage * ITEMS_PER_PAGE;
+
+      // setDisplay(messages.slice(startIndex, endIndex));
+
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
+  const prevPage = (e) => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+
   return (
     <div className="MessagePage">
       <h1>Messages</h1>
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <div className="cards-container">
-        {messages.length > 0 ? (
-          messages.map((msg, index) => <NoteCard data={msg} key={index} />)
-        ) : (
-          <p>No messages available.</p>
-        )}
+      <div className="page-buttons">
+        <button disabled={currentPage === 1 ? true : false} onClick={prevPage}>
+          {"<"}
+        </button>
+        <span>{currentPage}</span>
+        <button
+          onClick={nextPage}
+          disabled={
+            currentPage * ITEMS_PER_PAGE >= messages.length ? true : false
+          }
+        >
+          {">"}
+        </button>
       </div>
 
-      <button onClick={() => navigate("/new-message")}>Send New Message</button>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <MessageComponent display={display} />
+      <button
+        onClick={() => navigate("/new-message")}
+        className="sendMessageBtn"
+      >
+        Send New Message
+      </button>
     </div>
   );
 }
