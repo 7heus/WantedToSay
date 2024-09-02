@@ -68,3 +68,13 @@ body.red {
   background-color: red;
   color: white;
 }
+
+.Welcome{
+  position: absolute;
+  padding: none;
+  align-items: center;
+  top: 35%;
+  left: 50vw;
+  transform: translateX(-50%);
+
+}
