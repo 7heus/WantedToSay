@@ -10,6 +10,39 @@ export const getMessages = async () => {
   }
 };
 
+export const getCommentsPost = async (postId) => {
+  try {
+    const response = await axios.get(`${urlString}/comments/post/${postId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const postComment = async (postId, userId, content) => {
+  try {
+    const format = {
+      content,
+      postId,
+      userPosted: userId,
+      reactions: [],
+    };
+    const response = await axios.post(`${urlString}/comments`, format);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getMessageById = async (id) => {
+  try {
+    const response = await axios.get(`${urlString}/messages/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const getQueryMessage = async (query) => {
   try {
     const response = await axios.get(
@@ -68,6 +101,41 @@ export const decryptMessage = async (data, secretKey) => {
         data: [...data],
       }
     );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const pushReaction = async (commentId, userId) => {
+  try {
+    const response = await axios.put(
+      `${urlString}/comments/${commentId}/reactions`,
+      { userId, action: "push" }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const removeReaction = async (commentId, userId) => {
+  try {
+    const response = await axios.put(
+      `${urlString}/comments/${commentId}/reactions`,
+      { userId, action: "pull" }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const updateCommentContent = async (commentId, content) => {
+  try {
+    const response = await axios.put(`${urlString}/comments/${commentId}`, {
+      content,
+    });
     return response.data;
   } catch (error) {
     console.error(error);

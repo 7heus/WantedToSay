@@ -84,6 +84,7 @@ export { AuthContext, AuthProviderWrapper }; */
 
 import { createContext, useState, useEffect } from "react";
 import authService from "../services/auth.service";
+import { useNavigate } from "react-router-dom";
 import { fetchUser } from "../lib/crud";
 
 const AuthContext = createContext();
@@ -92,6 +93,7 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const nav = useNavigate();
 
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
@@ -133,6 +135,7 @@ function AuthProviderWrapper(props) {
   const logOutUser = () => {
     removeToken();
     authenticateUser(); // Update state after logging out
+    nav("/");
   };
 
   useEffect(() => {
