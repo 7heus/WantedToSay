@@ -1,38 +1,37 @@
-/* Center the signup page content */
 .SignupPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(89vh - 50px); /* Adjust to account for navbar height */
-  background-color: #f3eae8; /* Light background color similar to Instagram */
+  height: calc(89vh - 50px);
+  background-color: #f3eae8;
   padding: 20px;
   box-sizing: border-box;
   border-radius: 30px;
   margin-top: 70px;
 }
 
-/* Style the form container */
+
 .SignupPage form {
-  background-color: #ffffff; /* White background for the form */
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 100%;
-  max-width: 350px; /* Slightly narrower form */
+  max-width: 350px;
   box-sizing: border-box;
 }
 
-/* Style the form heading */
+
 .SignupPage h1 {
-  font-size: 22px; /* Adjusted font size */
-  color: #333; /* Dark text color */
+  font-size: 22px;
+  color: #333;
   margin-bottom: 20px;
   text-align: center;
-  font-weight: bold; /* Bold heading for emphasis */
+  font-weight: bold;
 }
 
-/* Style form labels to make them bold */
+
 .SignupPage label {
   display: block;
   font-size: 14px;
