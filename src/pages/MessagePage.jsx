@@ -19,7 +19,6 @@ function MessagePage() {
   const fetchPageData = () => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = currentPage * ITEMS_PER_PAGE;
-    console.log(messages);
 
     if (user && messages.length >= startIndex) {
       decryptMessages(messages.slice(startIndex, endIndex), user.uniqueKey)
@@ -34,7 +33,6 @@ function MessagePage() {
     }
   };
   useEffect(() => fetchPageData(), [messages, currentPage]);
-  useEffect(() => console.log(display), [display]);
 
   useEffect(() => {
     if (!isLoggedIn) {
