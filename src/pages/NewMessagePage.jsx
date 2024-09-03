@@ -68,7 +68,8 @@ function NewMessagePage() {
         <button
           type="submit"
           style={{ visibility: !user ? "hidden" : "visible" }}
-        className="sendMessageBtn">
+          className="sendMessageBtn"
+        >
           Send Message
         </button>
       </form>
