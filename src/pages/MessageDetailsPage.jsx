@@ -22,13 +22,12 @@ function MessageDetailPage() {
   const nav = useNavigate();
   const MAX_CHARS = 500;
 
-  if (!isLoggedIn) {
-    nav("/login");
-    return;
-  }
-
   useEffect(() => {
     if (user) {
+      if (!isLoggedIn) {
+        nav("/login");
+        return;
+      }
       getMessageById(id)
         .then((msg) => {
           decryptMessages(msg, user.uniqueKey).then((response) => {
