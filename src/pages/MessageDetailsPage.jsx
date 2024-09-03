@@ -31,12 +31,9 @@ function MessageDetailPage() {
       }
       getMessageById(id)
         .then((msg) => {
-          console.log(msg, user.uniqueKey);
           decryptMessages([msg], user.uniqueKey).then((response) => {
-            console.log(response.data, user.uniqueKey);
             if (response && response.data && response.data.length > 0) {
               setMessage(response.data[0]);
-              console.log(response.data, user.uniqueKey);
               getCommentsPost(id).then((dat) => {
                 setComments(dat);
               });
