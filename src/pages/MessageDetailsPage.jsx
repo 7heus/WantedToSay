@@ -24,7 +24,11 @@ function MessageDetailPage() {
   const MAX_CHARS = 500;
 
   useEffect(() => {
-    if (user && isLoggedIn) {
+    if (user) {
+      if (!isLoggedIn) {
+        nav("/login");
+        return;
+      }
       getMessageById(id)
         .then((msg) => {
           decryptMessages(msg, user.uniqueKey).then((response) => {
@@ -87,10 +91,8 @@ function MessageDetailPage() {
         className="message-box"
         style={{ backgroundColor: message.color || "white" }}
       >
-        <p>{`To: ${message.receiver}`}</p>
-        <p style={{ color: message.color === "white" ? "black" : "white" }}>
-          {message.content}
-        </p>
+        <p className="message-recipient">{`To: ${message.receiver}`}</p>
+        <p className="message-content">{message.content}</p>
       </div>
       <div className="comment-section">
         <textarea
