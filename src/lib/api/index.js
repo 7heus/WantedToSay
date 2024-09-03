@@ -84,7 +84,7 @@ export const decryptMessages = async (data, secretKey) => {
   try {
     const response = await axios.post(`${urlString}/messages/decrypt`, {
       secretKey: secretKey,
-      data: [data],
+      data: data,
     });
     return response.data;
   } catch (error) {
@@ -136,6 +136,15 @@ export const updateCommentContent = async (commentId, content) => {
     const response = await axios.put(`${urlString}/comments/${commentId}`, {
       content,
     });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const deleteComment = async (commentId) => {
+  try {
+    const response = await axios.delete(`${urlString}/comments/${commentId}`);
     return response.data;
   } catch (error) {
     console.error(error);

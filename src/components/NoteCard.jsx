@@ -6,31 +6,30 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 export default function NoteCard({ data }) {
-  const { user } = useContext(AuthContext);
   const [content, setContent] = useState("");
 
-  const decrypt = () => {
-    user &&
-      decryptMessages(data, user.uniqueKey)
-        .then((dat) => {
-          if (dat && dat.data && dat.data.length > 0) {
-            setContent(dat.data[0].content);
-          }
-        })
-        .catch((error) => {
-          console.error("Error decrypting message:", error);
-        });
-  };
+  // const decrypt = () => {
+  //   user &&
+  //     decryptMessages(data, user.uniqueKey)
+  //       .then((dat) => {
+  //         if (dat && dat.data && dat.data.length > 0) {
+  //           setContent(dat.data[0].content);
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error decrypting message:", error);
+  //       });
+  // };
 
-  useEffect(() => {
-    decrypt();
-  }, [user]);
+  // useEffect(() => {
+  //   decrypt();
+  // }, [user, display]);
 
   useEffect(() => {
     if (content.length >= 50) {
       setContent(`${content.slice(0, 50)} ...`);
     }
-  }, [content]);
+  }, [data.content]);
 
   return (
     <Link to={`/messages/${data._id}`}>
@@ -46,7 +45,7 @@ export default function NoteCard({ data }) {
             className="content"
             style={{ color: data.color === "white" ? "black" : "white" }}
           >
-            {content}
+            {data.content}
           </p>
         </div>
       </div>
