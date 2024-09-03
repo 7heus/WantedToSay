@@ -5,7 +5,6 @@ body {
   padding: 0;
   background-color: #f5f4ef;
 }
-
 .NewMessagePage {
   height: 100%;
   display: flex;
@@ -14,7 +13,6 @@ body {
   padding: 20px;
   box-sizing: border-box;
 }
-
 .NewMessagePage form {
   background-color: #ffffff;
   border-radius: 16px;
@@ -27,7 +25,6 @@ body {
   flex-direction: column;
   align-items: flex-start;
 }
-
 .NewMessagePage form h1 {
   font-size: 24px;
   color: #333;
@@ -36,26 +33,18 @@ body {
   font-weight: bold;
   width: 100%;
 }
-
-<<<<<<< HEAD
 .NewMessagePage .error-message {
-=======
-.error-message {
->>>>>>> origin/messageDetails
   color: red;
   margin-bottom: 20px;
   font-size: 14px;
   text-align: center;
 }
-
-<<<<<<< HEAD
 .NewMessagePage .form-group {
   width: 100%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
-
 .NewMessagePage label {
   font-size: 14px;
   color: #333;
@@ -64,7 +53,6 @@ body {
   text-align: left;
   display: block;
 }
-
 .NewMessagePage input,
 .NewMessagePage textarea {
   width: 100%;
@@ -75,14 +63,12 @@ body {
   box-sizing: border-box;
   color: #495057;
 }
-
 .NewMessagePage input:focus,
 .NewMessagePage textarea:focus {
   border-color: #80bdff;
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
-
 .NewMessagePage button {
   width: 100%;
   padding: 12px;
@@ -97,23 +83,6 @@ body {
   box-sizing: border-box;
   transition: background-color 0.3s ease;
 }
-
 .NewMessagePage button:hover {
   background-color: #3b4a2c;
 }
-=======
-
-.sendMessageBtn{
-  background-color: #555;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.sendMessageBtn:hover{
-  background-color: #777;
-}
->>>>>>> origin/messageDetails
