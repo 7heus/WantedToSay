@@ -16,6 +16,7 @@ import MessagePage from "./pages/MessagePage";
 import NewMessagePage from "./pages/NewMessagePage";
 import MessageDetailPage from "./pages/MessageDetailsPage";
 import { AuthProviderWrapper } from "./context/auth.context";
+import VerifyNow from "./components/VerifyNow";
 const noFooterPaths = ["/signup", "/login"];
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <VerifyNow />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route

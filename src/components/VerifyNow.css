@@ -1,0 +1,18 @@
+.inner-box {
+  background-color: rgb(223, 66, 66);
+  color: white;
+  width: 50vw;
+}
+
+.verify-alert {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 5vh;
+  left: 25vw;
+}
+
+#close-button:hover {
+  color: cyan;
+  cursor: pointer;
+}
