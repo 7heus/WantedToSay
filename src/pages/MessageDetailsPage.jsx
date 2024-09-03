@@ -102,11 +102,13 @@ function MessageDetailPage() {
           style={{ resize: "none" }}
           maxLength={MAX_CHARS}
         />
+        <hr />
         <label style={{ color: charCount > MAX_CHARS && "red" }}>
           {charCount <= MAX_CHARS
             ? `${charCount}/${MAX_CHARS}`
             : `${MAX_CHARS - charCount}`}
         </label>
+        <hr />
         <br />
         <button onClick={handleCommentSubmit}>Add Comment</button>
         <div className="comments-list">
