@@ -12,8 +12,8 @@ export default function UserProfile() {
   const [uniqueKey, setUniqueKey] = useState("");
 
   const handleName = (e) => setName(e.target.value);
-  const handleEmail = (e) => setEmail(e.target.value);
-  const handleKey = (e) => setUniqueKey(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value.replace(/\s/g, ""));
+  const handleKey = (e) => setUniqueKey(e.target.value.replace(/\s/g, ""));
 
   const handleSubmit = (e) => {
     e.preventDefault();
