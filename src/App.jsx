@@ -16,6 +16,7 @@ import MessagePage from "./pages/MessagePage";
 import NewMessagePage from "./pages/NewMessagePage";
 import MessageDetailPage from "./pages/MessageDetailsPage";
 import VerifyNow from "./components/VerifyNow";
+import PinVerify from "./pages/PinVerification";
 const noFooterPaths = ["/signup", "/login"];
 import { useState } from "react";
 
@@ -45,6 +46,7 @@ function App() {
             </IsAnon>
           }
         />
+        <Route path="/getpin" element={<PinVerify />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route

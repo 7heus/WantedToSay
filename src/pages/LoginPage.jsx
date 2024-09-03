@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import authService from "../services/auth.service";
 import "./LoginPage.css";
+import { getCode } from "../lib/api";
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");
@@ -20,7 +21,8 @@ function LoginPage(props) {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const requestBody = { email, password };
-
+    document.body.style.cursor = "wait";
+    getCode(email).then((data) => console.log(data));
     authService
       .login(requestBody)
       .then((response) => {
@@ -30,6 +32,9 @@ function LoginPage(props) {
         storeToken(response.data.authToken);
 
         navigate("/messages");
+      })
+      .finally(() => {
+        document.body.style.cursor = "default";
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
