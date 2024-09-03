@@ -2,12 +2,12 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import "./VerifyNow.css";
 
-export default function VerifyNow() {
+export default function VerifyNow({ verifying }) {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    if (user && !user?.isVerified) {
+    if (!verifying && user && !user?.isVerified) {
       setIsOpen(true);
     }
   }, [user]);
