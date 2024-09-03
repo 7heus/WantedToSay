@@ -1,6 +1,13 @@
 .MessagePage {
-  padding: 20px;
   box-sizing: border-box;
+}
+
+
+h1{
+  position: absolute;
+  top: 3vw;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 
@@ -11,7 +18,7 @@
   padding: 20px;
   box-sizing: border-box;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 150px;
 }
 
 .error-message {
@@ -63,7 +70,8 @@
   cursor: pointer;
   position: absolute;
   left: 50%;
-  top: 12.5vw;
+  transform: translateX(-50%);
+  top: 11vw;
   height: 25px;
 }
 
