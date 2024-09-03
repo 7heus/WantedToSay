@@ -28,7 +28,7 @@ function App() {
       <Navbar />
       <VerifyNow verifying={verifying} />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage setVerifying={setVerifying} />} />
         <Route
           path="/signup"
           element={
