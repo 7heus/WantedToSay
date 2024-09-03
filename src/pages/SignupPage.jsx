@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/auth.service";
 import "./SignupPage.css";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 import avatar1 from "../assets/avatars/avatar1.png";
 import avatar2 from "../assets/avatars/avatar2.png";
@@ -27,6 +29,8 @@ function SignupPage(props) {
   const handleName = (e) => setName(e.target.value);
   const handleKey = (e) => setUniqueKey(e.target.value);
 
+  const { storeToken, authenticateUser } = useContext(AuthContext);
+
   const handleAvatarSelection = (avatar) => {
     setSelectedAvatar(avatar);
   };
@@ -49,9 +53,14 @@ function SignupPage(props) {
     authService
       .signup(requestBody)
       .then((response) => {
-        navigate("/login");
+        authService
+          .login({ email: requestBody.email, password: requestBody.password })
+          .then((response) => {
+            storeToken(response.data.authToken);
+
+            navigate("/messages");
+          });
       })
-      .finally(() => console.log(selectedAvatar))
       .catch((error) => {
         const errorDescription =
           error.response?.data?.message || "An unknown error occured";
