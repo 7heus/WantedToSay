@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/api/messages";
+const API_URL = "https://wantedtosay-server.adaptable.app/api/messages";
 
 const getMessages = () => {
   return axios.get(API_URL);

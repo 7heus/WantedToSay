@@ -1,5 +1,5 @@
 import axios from "axios";
-const urlString = "http://localhost:3000/api";
+const urlString = "https://wantedtosay-server.adaptable.app/api";
 
 export const updateUser = async (id, data) => {
   try {
@@ -15,7 +15,7 @@ export const verifyEmail = async (id) => {
   try {
     if (!id) return;
     const response = await axios.post(
-      `http://localhost:3000/auth/email/verify`,
+      `https://wantedtosay-server.adaptable.app/auth/email/verify`,
       {
         _id: id,
       }

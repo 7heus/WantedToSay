@@ -1,5 +1,5 @@
 import axios from "axios";
-const urlString = "http://localhost:3000/api";
+const urlString = "https://wantedtosay-server.adaptable.app/api";
 
 export const getMessages = async () => {
   try {
@@ -72,7 +72,7 @@ export const postMessage = async (content, encryptionKey, recipient, color) => {
 export const getUserKey = async (userId) => {
   try {
     const response = await axios.get(
-      `$http://localhost:3000/auth/users/${userId}`
+      `$https://wantedtosay-server.adaptable.app/auth/users/${userId}`
     );
     return response.data.uniqueKey;
   } catch (error) {
