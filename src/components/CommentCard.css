@@ -23,6 +23,10 @@
 
 .comment-body {
   margin-bottom: 10px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .comment-text {
