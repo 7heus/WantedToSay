@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f5f4ef;
+  background-color: #F5F4EF;
 }
 .NewMessagePage {
   height: 100%;
@@ -14,7 +14,7 @@ body {
   box-sizing: border-box;
 }
 .NewMessagePage form {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 30px;
@@ -62,21 +62,22 @@ body {
   font-size: 16px;
   box-sizing: border-box;
   color: #495057;
-  resize: none;
+      resize: none;
 }
 .NewMessagePage input:focus,
 .NewMessagePage textarea:focus {
-  border-color: #80bdff;
+    border-color: #80BDFF;
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    resize: none;
 }
 .NewMessagePage button {
   width: 100%;
   padding: 12px;
   border: none;
   border-radius: 6px;
-  background-color: #4b593b;
-  color: #ffffff;
+  background-color: #4B593B;
+  color: #FFFFFF;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -85,5 +86,5 @@ body {
   transition: background-color 0.3s ease;
 }
 .NewMessagePage button:hover {
-  background-color: #3b4a2c;
+  background-color: #3B4A2C;
 }

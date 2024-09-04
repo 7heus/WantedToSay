@@ -1,4 +1,8 @@
-// src/components/IsAnon.jsx
+// Display "Loading..." if authentication status is being determined
+// Redirect to the home page if the user is logged in
+// Render the children if the user is not logged in
+
+
 
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";

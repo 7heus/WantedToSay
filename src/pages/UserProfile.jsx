@@ -37,31 +37,30 @@ export default function UserProfile() {
   return (
     <div className="page">
       <div className="card">
-        <p>Your settings,</p>
+        <p>Your settings</p><br/>
         <form onSubmit={handleSubmit}>
           <label>
-            Name:{" "}
+            Name:{" "}<br/>
             <input type="text" name="name" value={name} onChange={handleName} />
-          </label>
+          </label><br/><br/>
           <label>
-            Email:{" "}
+            Email:{" "}<br/>
             <input
               type="email"
               name="email"
               value={email}
               onChange={handleEmail}
             />
-          </label>
+          </label><br/><br/>
           <label>
-            Encryption Key:{" "}
+            Encryption Key:{" "}<br/>
             <input
               type="password"
               name="encryption"
               value={uniqueKey}
               onChange={handleKey}
             />
-          </label>
-
+          </label><br/><br/>  
           <button type="submit">Submit</button>
         </form>
       </div>

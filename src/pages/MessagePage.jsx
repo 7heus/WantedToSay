@@ -76,7 +76,7 @@ function MessagePage() {
         >
           {"<"}
         </button>
-        <span>{currentPage}</span>
+        <span><h3>{currentPage}</h3></span>
         <button
           onClick={nextPage}
           disabled={

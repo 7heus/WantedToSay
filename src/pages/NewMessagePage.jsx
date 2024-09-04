@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./NewMessagePage.css";
 import { AuthContext } from "../context/auth.context";
 import { getUserKey } from "../lib/api";
-
 function NewMessagePage() {
   const [recipient, setRecipient] = useState("");
   const [messageContent, setMessageContent] = useState("");
@@ -17,14 +16,11 @@ function NewMessagePage() {
     navigate("/login");
     return;
   }
-
   const handleRecipientChange = (e) => setRecipient(e.target.value);
   const handleMessageContentChange = (e) => setMessageContent(e.target.value);
   const handleColorChange = (e) => setColor(e.target.value);
-
   const handleSendMessage = (e) => {
     e.preventDefault();
-
     if (recipient.trim() === "" || messageContent.trim() === "") {
       setErrorMessage("Recipient and message content cannot be empty.");
       return;
@@ -38,7 +34,6 @@ function NewMessagePage() {
         });
     }
   };
-
   return (
     <div className="NewMessagePage">
       <form onSubmit={handleSendMessage}>
@@ -76,5 +71,5 @@ function NewMessagePage() {
     </div>
   );
 }
-
 export default NewMessagePage;
+

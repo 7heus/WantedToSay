@@ -1,7 +1,15 @@
 .MessagePage {
-  padding: 20px;
   box-sizing: border-box;
 }
+
+
+h1{
+  position: absolute;
+  top: 3vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 
 .cards-container {
   display: flex;
@@ -10,13 +18,28 @@
   padding: 20px;
   box-sizing: border-box;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 150px;
 }
 
 .error-message {
   color: red;
   font-weight: bold;
   text-align: center;
+}
+
+
+.sendMessageBtn{
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sendMessageBtn:hover{
+  background-color: #777;
 }
 
 .sendNewMessageBtn{
@@ -34,4 +57,30 @@
 }
 
 
+.page-buttons {
+  background-color: #555;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: none;
+  margin: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 11vw;
+  height: 25px;
+}
 
+
+.page-buttons button{
+  background-color: #555;
+  color: white;
+}
+
+.page-buttons button:hover{
+  background-color: #777;
+}

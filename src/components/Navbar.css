@@ -49,3 +49,44 @@
 .Navbar .LogoutBtn {
   width: auto;
 }
+
+
+body.light {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+body.dark {
+  background-color: #333333;
+  color: white;
+}
+
+body.cream {
+  background-color: #FFEBBB;
+  color: black;
+}
+
+body.purple {
+  background-color: purple;
+  color: white;
+}
+
+body.yellow {
+  background-color: yellow;
+  color: black;
+}
+
+body.red {
+  background-color: red;
+  color: white;
+}
+
+.Welcome{
+  position: absolute;
+  padding: none;
+  align-items: center;
+  top: 35%;
+  left: 50vw;
+  transform: translateX(-50%);
+
+}
