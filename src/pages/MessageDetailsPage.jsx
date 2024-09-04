@@ -19,7 +19,6 @@ function MessageDetailPage() {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [charCount, setCharCount] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
   const nav = useNavigate();
   const MAX_CHARS = 500;
 
@@ -46,12 +45,10 @@ function MessageDetailPage() {
           console.error("Failed to load message:", error);
           setErrorMessage("Failed to load message.");
         });
-      setIsLoaded(true);
     } else {
       nav("/login");
-      return;
     }
-  }, [user, isLoggedIn]);
+  }, [user, isLoggedIn, id, nav]);
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
@@ -61,14 +58,16 @@ function MessageDetailPage() {
   const handleCommentSubmit = async () => {
     if (comment.trim()) {
       try {
-        postComment(id, user._id, comment)
-          .then((data) => {
-            setComment("");
-            getCommentsPost(id).then((dat) => {
-              setComments(dat);
-            });
-          })
-          .catch((err) => console.error(err));
+        await postComment(id, user._id, comment);
+        setComment("");
+        // Fetch the latest comments
+        getCommentsPost(id).then((dat) => {
+          // Place the new comment at the top
+          setComments((prevComments) => [
+            dat[dat.length - 1],
+            ...dat.slice(0, -1),
+          ]);
+        });
       } catch (error) {
         console.error("Error adding comment:", error);
         setErrorMessage("Failed to add comment.");
@@ -86,36 +85,32 @@ function MessageDetailPage() {
 
   return (
     <div className="MessageDetailPage">
-      <h1>Message Detail</h1>
-      <div
-        className="message-box"
-        style={{ backgroundColor: message.color || "white" }}
-      >
+      <div className="message-box">
         <p className="message-recipient">{`To: ${message.receiver}`}</p>
         <p className="message-content">{message.content}</p>
       </div>
+
       <div className="comment-section">
         <textarea
           value={comment}
           onChange={handleCommentChange}
           placeholder="Add a comment..."
-          style={{ resize: "none" }}
           maxLength={MAX_CHARS}
         />
-        <label style={{ color: charCount > MAX_CHARS && "red" }}>
-          {charCount <= MAX_CHARS
-            ? `${charCount}/${MAX_CHARS}`
-            : `${MAX_CHARS - charCount}`}
+        <label style={{ color: charCount > MAX_CHARS ? "red" : "black" }}>
+          {charCount}/{MAX_CHARS}
         </label>
-        <br />
         <button onClick={handleCommentSubmit}>Add Comment</button>
-        <div className="comments-list">
-          {comments.length > 0 ? (
-            comments.map((c, index) => <CommentCard comment={c} key={index} />)
-          ) : (
-            <div>No comments yet.</div>
-          )}
-        </div>
+      </div>
+
+      <div className="comments-list">
+        {comments.length > 0 ? (
+          comments.map((c, index) => (
+            <CommentCard comment={c} key={c._id || index} />
+          ))
+        ) : (
+          <div>No comments yet.</div>
+        )}
       </div>
     </div>
   );

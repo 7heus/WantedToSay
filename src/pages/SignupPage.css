@@ -1,38 +1,43 @@
-/* Center the signup page content */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f4ef;
+}
+
 .SignupPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(89vh - 50px); /* Adjust to account for navbar height */
-  background-color: #f3eae8; /* Light background color similar to Instagram */
+  height: calc(100vh - 75px); /* Adjust based on your navbar height */
+  background-color: #f5f4ef; /* Match the background color */
   padding: 20px;
   box-sizing: border-box;
-  border-radius: 30px;
-  margin-top: 70px;
+  margin-top: 75px; /* Adjust for navbar */
 }
 
-/* Style the form container */
 .SignupPage form {
   background-color: #ffffff; /* White background for the form */
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   padding: 20px;
   width: 100%;
-  max-width: 350px; /* Slightly narrower form */
+  max-width: 400px; /* Adjust width */
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Style the form heading */
 .SignupPage h1 {
   font-size: 22px; /* Adjusted font size */
   color: #333; /* Dark text color */
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: center;
   font-weight: bold; /* Bold heading for emphasis */
 }
 
-/* Style form labels to make them bold */
 .SignupPage label {
   display: block;
   font-size: 14px;
@@ -41,7 +46,6 @@
   font-weight: bold; /* Bold labels for better readability */
 }
 
-/* Style form inputs */
 .SignupPage input {
   width: 100%;
   padding: 12px;
@@ -52,49 +56,38 @@
   box-sizing: border-box;
 }
 
-/* Focus state for inputs */
 .SignupPage input:focus {
-  border-color: #0095f6; /* Instagram blue color for input focus */
+  border-color: #80bdff; /* Blue border for input focus */
   outline: none;
-  box-shadow: 0 0 0 1px #0095f6; /* Blue shadow effect on focus */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Blue shadow effect on focus */
 }
 
-/* Style the submit button */
 .SignupPage button {
   width: 100%;
   padding: 12px;
   border: none;
   border-radius: 4px;
-  background: linear-gradient(
-    135deg,
-    #f9d0c4,
-    #f4a3b6
-  ); /* Gradient background */
+  background-color: #4b593b; /* Button color */
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px; /* Space above the button */
+  margin-top: 10px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
-/* Hover state for the button */
 .SignupPage button:hover {
-  background: linear-gradient(
-    135deg,
-    #f9d0c4,
-    #f4a3b6
-  ); /* Ensure gradient remains on hover */
+  background-color: #3b4a2c; /* Darker button color on hover */
 }
 
-/* Style error message */
-.error-message {
+.SignupPage .error-message {
   color: #ff4d4d; /* Red color for error messages */
   font-size: 14px;
   text-align: center;
   margin-top: 10px;
 }
 
-/* Style the login link */
 .SignupPage p {
   text-align: center;
   font-size: 14px;
@@ -103,7 +96,7 @@
 }
 
 .SignupPage a {
-  color: #6600ff; /* Instagram blue color for links */
+  color: #6600ff; /* Blue color for links */
   text-decoration: none;
 }
 
@@ -111,7 +104,6 @@
   text-decoration: underline; /* Underline on hover */
 }
 
-/* Style the avatar selection section */
 .avatar-selection {
   display: flex;
   gap: 10px; /* Space between avatars */
@@ -119,9 +111,8 @@
   justify-content: center; /* Center avatars horizontally */
 }
 
-/* Style individual avatars */
 .avatar {
-  width: 50px; /* Adjust size as needed */
+  width: 50px; /* Size of avatars */
   height: 50px;
   border-radius: 50%; /* Make avatars circular */
   border: 2px solid transparent; /* Border for selected avatar */
@@ -129,12 +120,10 @@
   transition: border-color 0.3s ease; /* Smooth transition for border color */
 }
 
-/* Style for selected avatar */
 .avatar.selected {
-  border-color: #0095f6; /* Blue border for selected avatar */
+  border-color: #4b593b; /* Green border for selected avatar */
 }
 
-/* Hover state for avatars */
 .avatar:hover {
   border-color: #ddd; /* Light border on hover */
 }
