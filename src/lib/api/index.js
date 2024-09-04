@@ -153,7 +153,7 @@ export const deleteComment = async (commentId) => {
 export const getCode = async (email) => {
   if (!email) return;
   try {
-    const response = await axios.post(`http://localhost:3000/auth/get-code`, {
+    const response = await axios.post(`${authString}/get-code`, {
       email: email,
     });
     return response.data;
@@ -166,10 +166,9 @@ export const getCode = async (email) => {
 export const sendCode = async (email) => {
   if (!email) return;
   try {
-    const response = await axios.post(
-      `http://localhost:3000/auth/create-code`,
-      { email: email }
-    );
+    const response = await axios.post(`${authString}/create-code`, {
+      email: email,
+    });
     return response.data;
   } catch (error) {
     console.error(error);
@@ -179,10 +178,9 @@ export const sendCode = async (email) => {
 export const getUserFromEmail = async (email) => {
   if (!email) return;
   try {
-    const response = await axios.post(
-      `http://localhost:3000/api/users/email/findOne`,
-      { email: email }
-    );
+    const response = await axios.post(`${urlString}/users/email/findOne`, {
+      email: email,
+    });
     return response.data;
   } catch (error) {
     console.error(error);
@@ -192,7 +190,7 @@ export const getUserFromEmail = async (email) => {
 export const updatePassword = async (email, newPass, code) => {
   if (!email || !newPass || !code) return;
   try {
-    const response = await axios.put("http://localhost:3000/auth/update-pass", {
+    const response = await axios.put(`${authString}/update-pass`, {
       email,
       newPass,
       code,
