@@ -14,7 +14,8 @@ export default function AboutUs() {
           />
           <h2 className="">Carlos Carvalho</h2>
           <p className=""></p>
-          <a href="https://github.com/CarlosCwebdev"><img className="GitHubImg" src={GitHubImg} alt="GitHubProfile"/></a>
+          <a href="https://github.com/CarlosCwebdev"><img className="GitHubImg" src={GitHubImg} alt="GitHubProfile" /></a><br/><br/>
+          <a href="https://www.linkedin.com/in/-carlos-carvalho-/"><img className="LinkedInLogo" src="src/assets/LinkedInLogo.png" alt="LinkedIn profile"/></a>
         </div>
         <div className="">
           <img
@@ -24,7 +25,8 @@ export default function AboutUs() {
           />
           <h2 className="">Prashidhika Neupane</h2>
           <p className=""></p>
-          <a href="https://github.com/Prashidhika/"><img className="GitHubImg" src={GitHubImg} alt="GitHubProfile"/></a>
+          <a href="https://github.com/Prashidhika/"><img className="GitHubImg" src={GitHubImg} alt="GitHubProfile"/></a><br/><br/>
+          <a href="https://www.linkedin.com/in/prashidhika-neupane-0a83a8216/"><img className="LinkedInLogo" src="src/assets/LinkedInLogo.png" alt="LinkedIn profile"/></a>
         </div>
         <div className="">
           <img
@@ -34,7 +36,8 @@ export default function AboutUs() {
           />
           <h2 className="">Matheus Almeida</h2>
           <p className=""></p>
-          <a href="https://github.com/7heus"><img className="GitHubImg" src={GitHubImg} alt="GitHubProfile"/></a>
+          <a href="https://github.com/7heus"><img className="GitHubImg" src={GitHubImg} alt="GitHubProfile"/></a><br/><br/>
+          <a href=""><img className="LinkedInLogo" src="src/assets/LinkedInLogo.png" alt="LinkedIn profile"/></a>
         </div>
       </div>
     </div>

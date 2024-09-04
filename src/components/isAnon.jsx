@@ -11,9 +11,6 @@ import { Navigate } from "react-router-dom";
 function IsAnon({ children }) {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
 
-  console.log("IsAnon Component - isLoggedIn:", isLoggedIn);
-  console.log("IsAnon Component - isLoading:", isLoading);
-
   // If the authentication is still loading
   if (isLoading) return <p>Loading ...</p>;
 

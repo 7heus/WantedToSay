@@ -1,8 +1,8 @@
 import "./Navbar.css";
 import { Link, useAsyncError, useLocation } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
+import React from "react";
 import { AuthContext } from "../context/auth.context";
-
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const location = useLocation();
@@ -24,7 +24,6 @@ function Navbar() {
   };
   
 
-
   return (
     <nav className="Navbar">
       <Link to="/">
@@ -40,18 +39,16 @@ function Navbar() {
       {!isLoggedIn && (
         <>
           {pathname !== "/signup" && pathname !== "/login" && (
-            <div className="button-group">
             <>
               <Link to="/signup">
-                <button className="SignUpBtn">Sign Up</button>
+                <button>Sign Up</button>
               </Link>
               {pathname !== "/login" && (
                 <Link to="/login">
                   <button>Login</button>
                 </Link>
               )}
-              </>
-            </div>
+            </>
           )}
         </>
       )}
@@ -59,11 +56,20 @@ function Navbar() {
         <>
           <span className="Welcome">Welcome, {user && user.name}</span>
           <button onClick={logOutUser} className="LogoutBtn">Logout</button>
+          {user && user.avatar ? (
+            <img
+              src={user.avatar}
+              alt="User Avatar"
+              className="navbar-avatar"
+            />
+          ) : (
+            <span>No Avatar</span>
+          )}
+          <button onClick={logOutUser}>Logout</button>
+
         </>
-        )}
-      </div>
+      )}
     </nav>
   );
 }
-
 export default Navbar;

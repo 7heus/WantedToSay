@@ -62,12 +62,14 @@ body {
   font-size: 16px;
   box-sizing: border-box;
   color: #495057;
+      resize: none;
 }
 .NewMessagePage input:focus,
 .NewMessagePage textarea:focus {
-  border-color: #80BDFF;
+    border-color: #80BDFF;
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    resize: none;
 }
 .NewMessagePage button {
   width: 100%;

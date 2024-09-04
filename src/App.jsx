@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import HomePage from "./pages/HomePage";
@@ -14,17 +14,21 @@ import VerifyUser from "./pages/VerifyEmail";
 import AboutTheProject from "./pages/AboutTheProject";
 import MessagePage from "./pages/MessagePage";
 import NewMessagePage from "./pages/NewMessagePage";
-import { AuthProviderWrapper } from "./context/auth.context";
+import MessageDetailPage from "./pages/MessageDetailsPage";
+import VerifyNow from "./components/VerifyNow";
 const noFooterPaths = ["/signup", "/login"];
+import { useState } from "react";
 
 function App() {
   const location = useLocation();
+  const [verifying, setVerifying] = useState(false);
 
   return (
     <div className="App">
       <Navbar />
+      <VerifyNow verifying={verifying} />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage setVerifying={setVerifying} />} />
         <Route
           path="/signup"
           element={
@@ -43,10 +47,14 @@ function App() {
         />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<UserProfile />} />
-        <Route path="/email/verify/:userId" element={<VerifyUser />} />
+        <Route
+          path="/email/verify/:userId"
+          element={<VerifyUser setVerifying={setVerifying} />}
+        />
         <Route path="/wantedtosay" element={<AboutTheProject />} />
         <Route path="/messages" element={<MessagePage />} />
         <Route path="/new-message" element={<NewMessagePage />} />
+        <Route path="/messages/:id" element={<MessageDetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Sidebar />

@@ -4,9 +4,15 @@
   }
   
   .AboutUs{
-    padding-top: 50px;
-    margin-top: 50px;
+    position: fixed;
+    top: 5vw;
+    left: 50%;
+    transform: translateX(-50%);
   }
+
+  h2 {
+    white-space: nowrap;
+}
   
   .Info {
     display: flex;
@@ -16,8 +22,12 @@
     align-items: center;
     justify-content: center;
     justify-items: center;
+    position: fixed;
+    top: 9vw;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
+
   .CarlosPic {
     width: 200px;
     height: 200px;
@@ -38,5 +48,11 @@
   
   .GitHubImg {
     width: 100px;
+    border-radius: 2.5px;
+  }
+
+
+  .LinkedInLogo{
+    width: 125px;
     border-radius: 2.5px;
   }
