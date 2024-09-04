@@ -21,7 +21,7 @@ export default function VerifyNow({ verifying }) {
             <p>
               Your email is not verified! Click{" "}
               <a
-                href={`https://wanted-to-say.vercel.app/email/verify/${user._id}`}
+                href={`https://wantedtosay.netlify.app/email/verify/${user._id}`}
               >
                 here
               </a>{" "}
