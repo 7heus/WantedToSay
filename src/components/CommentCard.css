@@ -5,8 +5,8 @@
   margin-bottom: 10px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 
-  max-width: 100%;
-  width: auto;
+  max-width: 50%;
+  width: 25vw;
 }
 
 .comment-header {
@@ -34,8 +34,9 @@
   border-radius: 8px;
   padding: 10px;
   word-break: break-word;
+  text-overflow: clip;
 
-  width: 100%;
+  width: unset;
 }
 
 .edit-textarea {
