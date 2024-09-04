@@ -87,16 +87,23 @@ body {
   margin-top: 15px; /* Increased margin above error message */
 }
 
+.LoginPage .links-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+/* Style the signup and password reset links */
 .LoginPage p {
   text-align: center;
   font-size: 16px; /* Larger font size for text */
   color: #333;
-  margin-top: 15px; /* Increased margin above text */
+  margin-top: 20px; /* Add space above the paragraph */
 }
 
 .LoginPage a {
   color: #6600ff; /* Blue color for links */
   text-decoration: none;
+  margin: 0 10px; /* Add horizontal spacing between links */
 }
 
 .LoginPage a:hover {
