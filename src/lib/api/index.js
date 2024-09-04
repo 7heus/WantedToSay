@@ -149,3 +149,54 @@ export const deleteComment = async (commentId) => {
     console.error(error);
   }
 };
+
+export const getCode = async (email) => {
+  if (!email) return;
+  try {
+    const response = await axios.post(`http://localhost:3000/auth/get-code`, {
+      email: email,
+    });
+    return response.data;
+  } catch (error) {
+    if (error.response.data.message === "No code found") return;
+    console.error(error);
+  }
+};
+
+export const sendCode = async (email) => {
+  if (!email) return;
+  try {
+    const response = await axios.post(
+      `http://localhost:3000/auth/create-code`,
+      { email: email }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getUserFromEmail = async (email) => {
+  if (!email) return;
+  try {
+    const response = await axios.post(
+      `http://localhost:3000/api/users/email/findOne`,
+      { email: email }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const updatePassword = async (email, newPass, code) => {
+  if (!email || !newPass || !code) return;
+  try {
+    const response = await axios.put("http://localhost:3000/auth/update-pass", {
+      email,
+      newPass,
+      code,
+    });
+    return response.data;
+  } catch (error) {}
+};

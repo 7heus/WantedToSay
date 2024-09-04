@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import authService from "../services/auth.service";
 import "./LoginPage.css";
+import { getCode } from "../lib/api";
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ function LoginPage(props) {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const requestBody = { email, password };
-
+    document.body.style.cursor = "wait";
     authService
       .login(requestBody)
       .then((response) => {
@@ -31,6 +32,9 @@ function LoginPage(props) {
         storeToken(response.data.authToken);
 
         navigate("/messages");
+      })
+      .finally(() => {
+        document.body.style.cursor = "default";
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -67,6 +71,8 @@ function LoginPage(props) {
 
       <p>Don't have an account yet?</p>
       <Link to={"/signup"}> Sign Up</Link>
+      <p>Forgot your password?</p>
+      <Link to={"/reset-password"}>Reset Password</Link>
     </div>
   );
 }
