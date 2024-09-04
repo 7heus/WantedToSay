@@ -6,6 +6,7 @@ import {
 } from "../lib/api";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./PinVerification.css";
 
 export default function PinVerify() {
   const [email, setEmail] = useState("");
@@ -86,55 +87,54 @@ export default function PinVerify() {
   }, [code]);
 
   return (
-    <>
-      <div className="container">
+    <div className="container">
+      <div className="form-container">
+        <h1>Reset Your Password</h1>
         <p style={{ color: codeSent ? "green" : "red" }}>{errorMessage}</p>
         {isVerified ? (
           <>
-            <div className="pass-update">
-              <input
-                type="password"
-                name="NewPass"
-                id="NewPass"
-                value={newPass}
-                onChange={handleNewPass}
-              />
-              <input
-                type="password"
-                name="ConfirmNewPass"
-                id="ConfirmNewPass"
-                value={confirmNewPass}
-                onChange={handleConfirmPass}
-              />
-              <button onClick={updatePass}>Change</button>
-            </div>
+            <label htmlFor="NewPass">New Password</label>
+            <input
+              type="password"
+              name="NewPass"
+              id="NewPass"
+              value={newPass}
+              onChange={handleNewPass}
+            />
+            <label htmlFor="ConfirmNewPass">Confirm New Password</label>
+            <input
+              type="password"
+              name="ConfirmNewPass"
+              id="ConfirmNewPass"
+              value={confirmNewPass}
+              onChange={handleConfirmPass}
+            />
+            <button onClick={updatePass}>Change</button>
           </>
         ) : (
           <>
-            <div className="send-email">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value.replace(/\s/g, ""))}
-              />
-              <button onClick={handleSend}>Send</button>
-            </div>
-            <div className="pin-area">
-              <input
-                type="text"
-                name="pin"
-                id="pin-box"
-                maxLength={6}
-                value={code}
-                onChange={handlePin}
-              />
-            </div>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value.replace(/\s/g, ""))}
+            />
+            <label htmlFor="pin">PIN Code</label>
+            <input
+              type="text"
+              name="pin"
+              id="pin-box"
+              maxLength={6}
+              value={code}
+              onChange={handlePin}
+            />
+            <button onClick={handleSend}>Send</button>
           </>
         )}
       </div>
-    </>
+    </div>
   );
 }
