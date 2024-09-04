@@ -17,6 +17,7 @@ export default function PinVerify() {
   const [isVerified, setIsVerified] = useState(false);
   const [newPass, setNewPass] = useState("");
   const [confirmNewPass, setConfirmNewPass] = useState("");
+  const passwordRegex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
 
   const nav = useNavigate();
 
@@ -67,16 +68,40 @@ export default function PinVerify() {
 
   const updatePass = (e) => {
     e.preventDefault();
+    if (!passwordRegex.test(newPass) && !passwordRegex.test(confirmNewPass)) {
+      setIsVerified(false);
+      setErrorMessage(
+        "Password must have 6 letters, one number,\none upper case, and one special character."
+      );
+      return;
+    }
     if (newPass !== confirmNewPass) {
       setCodeSent(false);
       setErrorMessage("Both passwords must match!");
       return;
     }
-    updatePassword(email, newPass, code).finally(() => {
-      setIsVerified(true);
-      setErrorMessage("Password updated! Redirecting you to login page...");
-      setTimeout(() => nav("/login"), 3000);
-    });
+    updatePassword(email, newPass, code)
+      .then((res) => {
+        console.warn(res);
+        if (res.response.statusCode >= 400) {
+          setIsVerified(false);
+          setErrorMessage(res.response.message);
+          return;
+        }
+        setIsVerified(true);
+      })
+      .catch((err) => {
+        setIsVerified(false);
+        setErrorMessage(err.message);
+      })
+      .finally(() => {
+        setErrorMessage(
+          isVerified
+            ? "Password updated! Redirecting you to login page..."
+            : "Password format is invalid"
+        );
+        setTimeout(() => nav("/login"), 3000);
+      });
   };
 
   useEffect(() => {
@@ -122,6 +147,7 @@ export default function PinVerify() {
               value={email}
               onChange={(e) => setEmail(e.target.value.replace(/\s/g, ""))}
             />
+            <button onClick={handleSend}>Send</button>
             <label htmlFor="pin">PIN Code</label>
             <input
               type="text"
@@ -131,7 +157,6 @@ export default function PinVerify() {
               value={code}
               onChange={handlePin}
             />
-            <button onClick={handleSend}>Send</button>
           </>
         )}
       </div>
