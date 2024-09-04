@@ -214,7 +214,13 @@ function MessageDetailPage() {
 
   return (
     <div className="MessageDetailPage">
-      <div className="message-box">
+      <div
+        className="message-box"
+        style={{
+          backgroundColor: message.color,
+          color: message.color == "#FFFFFF" ? "black" : "white",
+        }}
+      >
         <p className="message-recipient">{`To: ${message.receiver}`}</p>
         <p className="message-content">{message.content}</p>
       </div>

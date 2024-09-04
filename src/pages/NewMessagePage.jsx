@@ -8,9 +8,10 @@ import { getUserKey } from "../lib/api";
 function NewMessagePage() {
   const [recipient, setRecipient] = useState("");
   const [messageContent, setMessageContent] = useState("");
-  const [color, setColor] = useState("white");
+  const [color, setColor] = useState("#FFFFFF");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const hexValidator = /^#?([A-F0-9]{6}|[A-F0-9]{3})$/;
 
   const { user, isLoggedIn } = useContext(AuthContext);
   if (!isLoggedIn) {
@@ -20,10 +21,16 @@ function NewMessagePage() {
 
   const handleRecipientChange = (e) => setRecipient(e.target.value);
   const handleMessageContentChange = (e) => setMessageContent(e.target.value);
-  const handleColorChange = (e) => setColor(e.target.value);
+  const handleColorChange = (e) => setColor(e.target.value.toUpperCase());
 
   const handleSendMessage = (e) => {
     e.preventDefault();
+    setErrorMessage("");
+
+    if (!hexValidator.test(color)) {
+      setErrorMessage("Please input a valid hex code! (Eg: #FFFFFF)");
+      return;
+    }
 
     if (recipient.trim() === "" || messageContent.trim() === "") {
       setErrorMessage("Recipient and message content cannot be empty.");
@@ -62,8 +69,9 @@ function NewMessagePage() {
           />
         </div>
         <div className="form-group">
-          <label>Color (Optional):</label>
-          <input type="text" value={color} onChange={handleColorChange} />
+          <label>Hex Color code (Optional):</label>
+          <input type="color" name="colors" onChange={handleColorChange} />
+          {/* <input type="text" value={color} onChange={handleColorChange} /> */}
         </div>
         <button
           type="submit"

@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+.MessagePage h1 {
+  padding-top: 50px;
+}
+
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -19,7 +23,7 @@
   text-align: center;
 }
 
-.sendNewMessageBtn{
+.sendNewMessageBtn {
   background-color: #555;
   color: white;
   border: none;
@@ -29,9 +33,43 @@
   border-radius: 5px;
 }
 
-.sendNewMessageBtn:hover{
+.sendNewMessageBtn:hover {
   background-color: #777;
 }
 
+.page-buttons button {
+  background-color: #555;
+  border-color: black;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  margin: none;
+  padding: none;
+}
 
+.page-buttons button:hover {
+  background-color: #777;
+  border-color: black;
+}
+.page-buttons h2 {
+  position: fixed;
+  top: 18.5%;
+  left: 50%;
+  transform: translate(-50%);
+  margin: none;
+  padding: none;
+}
 
+.prevPageBtn {
+  position: fixed;
+  top: 200px;
+  left: 47.5%;
+  transform: translate(-100%);
+}
+
+.nextPageBtn {
+  position: fixed;
+  top: 200px;
+  left: 52.5%;
+}
