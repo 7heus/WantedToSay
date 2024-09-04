@@ -145,9 +145,7 @@ function SignupPage(props) {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [uniqueKey, setUniqueKey] = useState("c001k3y");
-  const [selectedAvatar, setSelectedAvatar] = useState(
-    "../assets/avatars/avatar1.png"
-  );
+  const [selectedAvatar, setSelectedAvatar] = useState(avatar1);
 
   const navigate = useNavigate();
 
