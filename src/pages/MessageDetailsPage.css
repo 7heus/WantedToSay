@@ -64,6 +64,7 @@
   flex-direction: column-reverse;
   gap: 10px;
   overflow-y: auto;
+  overflow-x: hidden;
   flex: 1;
 }
 
