@@ -1,6 +1,6 @@
 import axios from "axios";
-const urlString = "http://localhost:3000/api";
-const authString = "http://localhost:3000/auth";
+const urlString = "https://wantedtosay-server.adaptable.app/api";
+const authString = "https://wantedtosay-server.adaptable.app/auth";
 
 export const getMessages = async () => {
   try {
