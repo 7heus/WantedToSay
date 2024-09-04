@@ -20,7 +20,9 @@ export default function VerifyNow({ verifying }) {
             <hr />
             <p>
               Your email is not verified! Click{" "}
-              <a href={`http://localhost:5173/email/verify/${user._id}`}>
+              <a
+                href={`https://wanted-to-say.vercel.app/email/verify/${user._id}`}
+              >
                 here
               </a>{" "}
               to verify.{" "}
