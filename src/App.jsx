@@ -87,14 +87,17 @@ import MessagePage from "./pages/MessagePage";
 import NewMessagePage from "./pages/NewMessagePage";
 import MessageDetailPage from "./pages/MessageDetailsPage";
 import PinVerify from "./pages/PinVerification";
+import VerifyNow from "./components/VerifyNow";
 const noFooterPaths = ["/signup", "/login"];
 
 function App() {
   const location = useLocation();
+  const [verifying, setVerifying] = useState(false);
 
   return (
     <div className="App">
       <Navbar />
+      <VerifyNow verifying={verifying} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -115,7 +118,10 @@ function App() {
         />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<UserProfile />} />
-        <Route path="/email/verify/:userId" element={<VerifyUser />} />
+        <Route
+          path="/email/verify/:userId"
+          element={<VerifyUser setVerifying={setVerifying} />}
+        />
         <Route path="/reset-password" element={<PinVerify />} />
         <Route path="/wantedtosay" element={<AboutTheProject />} />
         <Route path="/messages" element={<MessagePage />} />
