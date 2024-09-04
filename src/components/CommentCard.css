@@ -23,6 +23,10 @@
 
 .comment-body {
   margin-bottom: 10px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .comment-text {
@@ -34,8 +38,7 @@
   border-radius: 8px;
   padding: 10px;
   word-break: break-word;
-
-  width: 100%;
+  width: unset;
 }
 
 .edit-textarea {

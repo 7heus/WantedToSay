@@ -292,6 +292,7 @@ export default function CommentCard({ comment }) {
                 value={editedComment}
                 onChange={(e) => setEditedComment(e.target.value)}
                 className="edit-textarea"
+                maxLength={500}
               />
             ) : (
               <p className="comment-text">{editedComment}</p>
