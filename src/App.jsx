@@ -86,7 +86,7 @@ import AboutTheProject from "./pages/AboutTheProject";
 import MessagePage from "./pages/MessagePage";
 import NewMessagePage from "./pages/NewMessagePage";
 import MessageDetailPage from "./pages/MessageDetailsPage";
-import { AuthProviderWrapper } from "./context/auth.context";
+import PinVerify from "./pages/PinVerification";
 const noFooterPaths = ["/signup", "/login"];
 
 function App() {
@@ -116,6 +116,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/email/verify/:userId" element={<VerifyUser />} />
+        <Route path="/reset-password" element={<PinVerify />} />
         <Route path="/wantedtosay" element={<AboutTheProject />} />
         <Route path="/messages" element={<MessagePage />} />
         <Route path="/new-message" element={<NewMessagePage />} />

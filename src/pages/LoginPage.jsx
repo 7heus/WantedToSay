@@ -147,6 +147,8 @@ function LoginPage(props) {
 
           <p>Don't have an account yet?</p>
           <Link to={"/signup"}> Sign Up</Link>
+          <p>Forgot your password?</p>
+          <Link to={"/reset-password"}>Reset Password</Link>
         </form>
       </div>
     </div>
