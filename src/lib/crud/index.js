@@ -1,5 +1,5 @@
 import axios from "axios";
-const urlString = "https://wantedtosay-server.adaptable.app/api";
+const urlString = "http://localhost:3000/api";
 
 export const updateUser = async (id, data) => {
   try {

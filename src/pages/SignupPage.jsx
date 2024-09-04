@@ -38,7 +38,6 @@ function SignupPage(props) {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Selected Avatar on Submit:", selectedAvatar);
     document.body.style.cursor = "wait";
 
     //creating an object

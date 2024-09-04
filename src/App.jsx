@@ -46,7 +46,7 @@ function App() {
             </IsAnon>
           }
         />
-        <Route path="/getpin" element={<PinVerify />} />
+        <Route path="/reset-password" element={<PinVerify />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route

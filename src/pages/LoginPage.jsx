@@ -22,7 +22,6 @@ function LoginPage(props) {
     e.preventDefault();
     const requestBody = { email, password };
     document.body.style.cursor = "wait";
-    getCode(email).then((data) => console.log(data));
     authService
       .login(requestBody)
       .then((response) => {
@@ -71,6 +70,8 @@ function LoginPage(props) {
 
       <p>Don't have an account yet?</p>
       <Link to={"/signup"}> Sign Up</Link>
+      <p>Forgot your password?</p>
+      <Link to={"/reset-password"}>Reset Password</Link>
     </div>
   );
 }

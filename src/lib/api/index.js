@@ -159,6 +159,7 @@ export const getCode = async (email) => {
     });
     return response.data;
   } catch (error) {
+    if (error.response.data.message === "No code found") return;
     console.error(error);
   }
 };
@@ -166,7 +167,10 @@ export const getCode = async (email) => {
 export const sendCode = async (email) => {
   if (!email) return;
   try {
-    const response = await axios.post(`http://localhost:3000/auth/create-code`);
+    const response = await axios.post(
+      `http://localhost:3000/auth/create-code`,
+      { email: email }
+    );
     return response.data;
   } catch (error) {
     console.error(error);
