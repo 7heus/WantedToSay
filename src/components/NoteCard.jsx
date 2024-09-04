@@ -43,7 +43,7 @@ export default function NoteCard({ data }) {
         >
           <p
             className="content"
-            style={{ color: data.color === "white" ? "black" : "white" }}
+            style={{ color: data.color === "#FFFFFF" ? "black" : "white" }}
           >
             {data.content}
           </p>
