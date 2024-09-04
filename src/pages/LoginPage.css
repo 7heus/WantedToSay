@@ -94,17 +94,23 @@
   margin-top: 10px;
 }
 
-/* Style the signup link */
+.LoginPage .links-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+/* Style the signup and password reset links */
 .LoginPage p {
   text-align: center;
   font-size: 14px;
   color: #333;
-  margin-top: 10px;
+  margin-top: 20px; /* Add space above the paragraph */
 }
 
 .LoginPage a {
   color: #6600ff; /* Link color */
   text-decoration: none;
+  margin: 0 10px; /* Add horizontal spacing between links */
 }
 
 .LoginPage a:hover {
