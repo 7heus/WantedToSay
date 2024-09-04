@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage";
 import Footer from "./components/Footer";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import IsAnon from "./components/isAnon.jsx";
+import IsAnon from "./components/IsAnon.jsx";
 import AboutUs from "./pages/AboutUs";
 import NotFoundPage from "./pages/NotFoundPage";
 import UserProfile from "./pages/UserProfile";
