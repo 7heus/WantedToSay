@@ -19,7 +19,7 @@ export default function AboutUs() {
         </div>
         <div className="">
           <img
-            src="https://ca.slack-edge.com/T01BAR6KJP4-U078V9HKAVA-g13f63e4c01b-512"
+            src="https://media.licdn.com/dms/image/v2/D4D03AQECHw8p93DADw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725363237079?e=1730937600&v=beta&t=ELzaSZjhMaKR2MEG7MFyAxe6VtaDwaqX3pej-7X6qOM"
             alt="Prashidhika Neupane Pic"
             className="PrashidhikaPic"
           />
