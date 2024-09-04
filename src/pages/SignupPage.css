@@ -1,0 +1,129 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f4ef;
+}
+
+.SignupPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 75px); /* Adjust based on your navbar height */
+  background-color: #f5f4ef; /* Match the background color */
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 75px; /* Adjust for navbar */
+}
+
+.SignupPage form {
+  background-color: #ffffff; /* White background for the form */
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  width: 100%;
+  max-width: 400px; /* Adjust width */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.SignupPage h1 {
+  font-size: 22px; /* Adjusted font size */
+  color: #333; /* Dark text color */
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold; /* Bold heading for emphasis */
+}
+
+.SignupPage label {
+  display: block;
+  font-size: 14px;
+  color: #333; /* Dark color for labels */
+  margin-bottom: 5px;
+  font-weight: bold; /* Bold labels for better readability */
+}
+
+.SignupPage input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.SignupPage input:focus {
+  border-color: #80bdff; /* Blue border for input focus */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Blue shadow effect on focus */
+}
+
+.SignupPage button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4b593b; /* Button color */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.SignupPage button:hover {
+  background-color: #3b4a2c; /* Darker button color on hover */
+}
+
+.SignupPage .error-message {
+  color: #ff4d4d; /* Red color for error messages */
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.SignupPage p {
+  text-align: center;
+  font-size: 14px;
+  color: #333; /* Dark color for text */
+  margin-top: 10px;
+}
+
+.SignupPage a {
+  color: #6600ff; /* Blue color for links */
+  text-decoration: none;
+}
+
+.SignupPage a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.avatar-selection {
+  display: flex;
+  gap: 10px; /* Space between avatars */
+  margin-bottom: 15px; /* Space below the avatar selection */
+  justify-content: center; /* Center avatars horizontally */
+}
+
+.avatar {
+  width: 50px; /* Size of avatars */
+  height: 50px;
+  border-radius: 50%; /* Make avatars circular */
+  border: 2px solid transparent; /* Border for selected avatar */
+  cursor: pointer;
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.avatar.selected {
+  border-color: #4b593b; /* Green border for selected avatar */
+}
+
+.avatar:hover {
+  border-color: #ddd; /* Light border on hover */
+}

@@ -1,0 +1,61 @@
+/* NoteCard.css */
+.Card {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-decoration: none;
+  color: inherit;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.Card .to{
+  font-style: italic;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.Card .content {
+  font-size: 16px;
+  font-family: Creepster;
+  color: #333;
+  line-height: 1.5;
+  word-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow: auto;
+  filter: blur(3px);
+  transition: filter 0.15s ease-in-out;
+}
+
+.Card:hover .content {
+  filter: blur(0px);
+}
+
+.inner-box {
+  background-color: #f1f1f1;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 75%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}

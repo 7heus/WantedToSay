@@ -1,0 +1,58 @@
+.AboutPage {
+    /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+    justify-content: space-between;
+  }
+  
+  .AboutUs{
+    position: fixed;
+    top: 5vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  h2 {
+    white-space: nowrap;
+}
+  
+  .Info {
+    display: flex;
+    gap: 175px;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    position: fixed;
+    top: 9vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .CarlosPic {
+    width: 200px;
+    height: 200px;
+    border-radius: 35%;
+  }
+  
+  .MateusPic {
+    width: 200px;
+    height: 200px;
+    border-radius: 35%;
+  }
+  
+  .PrashidhikaPic {
+    width: 200px;
+    height: 200px;
+    border-radius: 35%;
+  }
+  
+  .GitHubImg {
+    width: 100px;
+    border-radius: 2.5px;
+  }
+
+
+  .LinkedInLogo{
+    width: 125px;
+    border-radius: 2.5px;
+  }

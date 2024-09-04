@@ -1,0 +1,108 @@
+.Navbar {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 75px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+  display: block;
+  object-fit: cover;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 75px;
+  right: 0;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 1000;
+  min-width: 200px;
+  overflow: hidden;
+}
+
+.dropdown-menu.dropdown-open {
+  display: block;
+}
+
+.dropdown-menu .dropdown-avatar {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.dropdown-menu .dropdown-avatar-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.dropdown-menu .dropdown-greeting {
+  margin: 10px 0;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.dropdown-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Action Box Styles */
+.action-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-box button {
+  background: none;
+  border: none;
+  color: #333;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.action-box button:hover {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.action-box button .emoji {
+  margin-right: 8px;
+}
