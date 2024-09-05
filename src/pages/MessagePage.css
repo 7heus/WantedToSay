@@ -1,6 +1,17 @@
 .MessagePage {
+  background-image: url("../assets/homepage.jpg"); /* Replace with the actual image URL */
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100vh; /* Sets the height to 100% of the viewport height */
+  width: 100vw; /* Sets the width to 100% of the viewport width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
   padding: 20px;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding in the total width and height */
+  margin: 0;
 }
 
 .MessagePage h1 {
@@ -43,9 +54,9 @@
   color: white;
   font-size: 12px;
   font-weight: bold;
-  position: absolute;
   margin: none;
   padding: none;
+  margin: 10px;
 }
 
 .page-buttons button:hover {
@@ -59,17 +70,4 @@
   transform: translate(-50%);
   margin: none;
   padding: none;
-}
-
-.prevPageBtn {
-  position: fixed;
-  top: 200px;
-  left: 47.5%;
-  transform: translate(-100%);
-}
-
-.nextPageBtn {
-  position: fixed;
-  top: 200px;
-  left: 52.5%;
 }

@@ -1,11 +1,23 @@
 .aboutProject {
-    margin-top: 75px;
+  background-image: url("../assets/login.jpg"); /* Replace with the correct image path */
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100vh; /* Sets the height to 100% of the viewport height */
+  width: 100vw; /* Sets the width to 100% of the viewport width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in the total width and height */
+  margin: 0;
 }
 
-.aboutProjectParagraph{
-    font-size: medium;
-    align-items: center;
-    text-align: center;
-    margin-top: 75px;
-    margin-bottom: 75px;
+.aboutProjectParagraph {
+  font-size: medium;
+  align-items: center;
+  text-align: center;
+  margin-top: 75px;
+  margin-bottom: 75px;
 }

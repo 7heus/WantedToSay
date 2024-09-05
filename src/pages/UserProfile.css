@@ -7,13 +7,132 @@ body {
 }
 
 .page {
-  height: 100%;
+  background-image: url("../assets/homepage.jpg"); /* Replace with the actual image URL */
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100vh; /* Sets the height to 100% of the viewport height */
+  width: 100vw; /* Sets the width to 100% of the viewport width */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
   padding: 20px;
+  box-sizing: border-box; /* Include padding in the total width and height */
+  margin: 0;
+  padding-top: 80px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 100%;
+  max-width: 400px;
   box-sizing: border-box;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card h1 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+}
+
+.card p {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  margin: 0 0 15px;
+  text-align: center;
+}
+
+.card .error-message {
+  color: red;
+  margin-bottom: 15px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.card .form-group {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card label {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 4px;
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.card input,
+.card textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+  color: #495057;
+}
+
+.card input:focus,
+.card textarea:focus {
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.card button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4b593b;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  top: -10px;
+  position: relative;
+}
+
+.card button:hover {
+  background-color: #3b4a2c;
+}
+
+.avatar-selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.avatar-selection img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.avatar-selection img.selected {
+  border-color: #4b593b;
 }
 
 .card {

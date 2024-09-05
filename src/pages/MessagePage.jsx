@@ -175,15 +175,17 @@ function MessagePage() {
     <div className="MessagePage">
       <h1>Messages</h1>
       <div className="page-buttons">
-        <button className="prevPageBtn"
+        <button
+          className="prevPageBtn"
           disabled={currentPage === 1 ? true : false}
           onClick={prevPage}
           style={{ userSelect: "none" }}
         >
           {"<"}
         </button>
-        <span><h2>{currentPage}</h2></span>
-        <button className="nextPageBtn"
+        <span>{currentPage}</span>
+        <button
+          className="nextPageBtn"
           onClick={nextPage}
           disabled={
             currentPage * ITEMS_PER_PAGE >= messages.length ? true : false
@@ -192,7 +194,8 @@ function MessagePage() {
         >
           {">"}
         </button>
-      </div><br></br>
+      </div>
+      <br></br>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <MessageComponent display={display} />
