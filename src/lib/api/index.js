@@ -72,7 +72,7 @@ export const postMessage = async (content, encryptionKey, recipient, color) => {
 
 export const getUserKey = async (userId) => {
   try {
-    const response = await axios.get(`${authString}/users/${userId}`);
+    const response = await axios.get(`${urlString}/users/${userId}`);
     return response.data.uniqueKey;
   } catch (error) {
     console.error(error);
