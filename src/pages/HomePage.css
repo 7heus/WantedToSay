@@ -1,51 +1,71 @@
-.HomePage h1 {
-    color: #fff; /* Default text color */
-    font-size: 4rem; /* Large font size */
-    font-weight: bold; /* Bold text */
-    text-transform: uppercase; /* Uppercase text */
-    background: linear-gradient(45deg, #ff6f61, #f9a825); /* Gradient background */
-    -webkit-background-clip: text; /* Clip the background to the text */
-    background-clip: text; /* Clip the background to the text */
-    text-fill-color: transparent; /* Transparent text fill to show gradient */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
-    margin: 0; /* Remove default margin */
-    margin-top: 75px;
-    padding: 20px; /* Padding around the text */
-    text-align: center; /* Center align text */
-    letter-spacing: 1px; /* Spacing between letters */
-    line-height: 1.2; /* Line height for better readability */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
-  }
-
-  .HomePage h1:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    color: #ffeb3b; /* Change text color on hover */
-    font-weight: bold; /* Make the text bold on hover */
+.HomePage {
+  background-image: url("../assets/Paper.jpg");
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-attachment: fixed; /* Keep the background fixed */
+  height: 100vh; /* Ensure the container takes up full viewport height */
+  width: 100vw; /* Ensure the container takes up full viewport width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+.HomePage h1,
+.HomePage h2 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+.HomePage h1 {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #ff6f61, #f9a825);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  margin-top: 75px;
+  padding: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
 
-  .HomePage h2 {
-    color: #fff; /* Default text color */
-    font-size: 2.5rem; /* Slightly smaller font size than h1 */
-    font-weight: 600; /* Semi-bold text */
-    text-transform: capitalize; /* Capitalize the first letter of each word */
-    background: linear-gradient(90deg, #4caf50, #81c784); /* Gradient background */
-    -webkit-background-clip: text; /* Clip the gradient to the text */
-    background-clip: text; /* Clip the gradient to the text */
-    text-fill-color: transparent; /* Transparent text fill to show gradient */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
-    margin: 0; /* Remove default margin */
-    padding: 10px; /* Padding around the text */
-    text-align: center; /* Center align text */
-    letter-spacing: 0.5px; /* Spacing between letters */
-    line-height: 1.3; /* Line height for readability */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
-  }
-  
+.HomePage h1:hover {
+  transform: scale(1.05);
+  color: #ffeb3b;
+  font-weight: bold;
+}
+
+.HomePage h2 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
 .HomePage h2:hover {
-    transform: translateY(-5px); /* Slightly move up on hover */
-    transform: scale(1.5); /* Slightly enlarge on hover */
-    font-weight: bold; /* Make the text bold on hover */
-    color: #ffeb3b; /* Change text color on hover */
-  }
+  transform: translateY(-5px);
+  transform: scale(1.5);
+  font-weight: bold;
+  color: #ffeb3b;
+}

@@ -1,118 +1,119 @@
-/* Center the login page content */
+/* Main page background */
+body {
+  background: linear-gradient(135deg, #f5f5dc 0%, #e0e0e0 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Login page container */
 .LoginPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(85vh - 75px); /* Adjust the height based on your layout */
-  background-color: #f3eae8; /* Background color */
+  height: 100vh;
+  width: 100vw;
+  background: url("../assets/homepage.jpg") no-repeat center center fixed; /* Background image */
+  background-size: cover; /* Ensure the image covers the entire background */
   padding: 20px;
   box-sizing: border-box;
-  border-radius: 30px;
-  margin-top: 20px; /* Margin to push the box down from the top */
+  margin: 0;
+  overflow: hidden;
 }
 
-/* Style the form container */
-.LoginPage form {
-  background-color: #ffffff; /* White background for the form */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Form container with gray background and black border */
+.form-container {
+  background-color: whitesmoke;
+  border: 7px solid #000000; /* Black border */
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 100%;
   max-width: 400px;
   box-sizing: border-box;
-  min-height: 300px; /* Ensure minimum height for the form */
+  display: flex;
+  flex-direction: column;
 }
 
-/* Style the form heading */
+/* Form heading */
 .LoginPage h1 {
-  font-size: 24px;
+  font-size: 28px;
   color: #333;
   margin-bottom: 20px;
   text-align: center;
+  font-weight: bold;
 }
 
-/* Style form labels to make them bold */
+/* Form labels */
 .LoginPage label {
   display: block;
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 5px;
-  font-weight: bold; /* Make labels bold */
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
-/* Style form inputs */
+/* Form inputs */
 .LoginPage input {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-  margin-bottom: 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-bottom: 20px;
   box-sizing: border-box;
 }
 
-/* Focus state for inputs */
+/* Input focus state */
 .LoginPage input:focus {
-  border-color: #c800ff; /* Highlight border color on focus */
+  border-color: #80bdff;
   outline: none;
-  box-shadow: 0 0 0 1px #007bff; /* Add shadow effect */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
-/* Style the submit button */
+/* Button styling */
 .LoginPage button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: none;
-  border-radius: 4px;
-  background: linear-gradient(
-    135deg,
-    #f9d0c4,
-    #f4a3b6
-  ); /* Gradient background */
+  border-radius: 6px;
+  background-color: #4b593b;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 20px; /* Space above the button */
+  margin-top: 15px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
-/* Hover state for the button */
+/* Button hover effect */
 .LoginPage button:hover {
-  background: linear-gradient(
-    135deg,
-    #f9d0c4,
-    #f4a3b6
-  ); /* Ensure gradient remains on hover */
+  background-color: #3b4a2c;
 }
 
-/* Style error message */
-.error-message {
+/* Error message styling */
+.LoginPage .error-message {
   color: #ff4d4d;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
-.LoginPage .links-container {
-  text-align: center;
-  margin-top: 100px;
-}
-
-/* Style the signup and password reset links */
+/* Additional text and link styling */
 .LoginPage p {
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
-  margin-top: 20px; /* Add space above the paragraph */
+  margin-top: 15px;
 }
 
 .LoginPage a {
-  color: #6600ff; /* Link color */
+  color: #6600ff;
   text-decoration: none;
-  margin: 0 10px; /* Add horizontal spacing between links */
 }
 
 .LoginPage a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }

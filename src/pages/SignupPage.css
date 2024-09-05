@@ -1,37 +1,52 @@
+/* Main page background */
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f4ef; /* Default background color */
+}
+
+/* Signup page container */
 .SignupPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(89vh - 50px);
-  background-color: #f3eae8;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background: url("../assets/homepage.jpg") no-repeat center center fixed; /* Background image */
+  background-size: cover; /* Ensure the image covers the entire background */
   padding: 20px;
   box-sizing: border-box;
-  border-radius: 30px;
-  margin-top: 70px;
+  margin: 0; /* Remove default margin */
+  overflow: hidden; /* Prevent scrolling */
 }
 
-
+/* Form container with gray background and black border */
 .SignupPage form {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: whitesmoke; /* Cream color */
+  border: 7px solid rgba(0, 0, 0, 0.3); /* Lighter smoky black border */
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2),
+    /* Main shadow */ 0 0 15px rgba(0, 0, 0, 0.1); /* Additional soft glow effect */
   padding: 20px;
   width: 100%;
-  max-width: 350px;
+  max-width: 400px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
-
+/* Form heading */
 .SignupPage h1 {
-  font-size: 22px;
-  color: #333;
-  margin-bottom: 20px;
+  font-size: 22px; /* Adjusted font size */
+  color: #333; /* Dark text color */
+  margin-bottom: 15px;
   text-align: center;
-  font-weight: bold;
+  font-weight: bold; /* Bold heading for emphasis */
 }
 
-
+/* Form labels */
 .SignupPage label {
   display: block;
   font-size: 14px;
@@ -40,7 +55,7 @@
   font-weight: bold; /* Bold labels for better readability */
 }
 
-/* Style form inputs */
+/* Form inputs */
 .SignupPage input {
   width: 100%;
   padding: 12px;
@@ -51,49 +66,43 @@
   box-sizing: border-box;
 }
 
-/* Focus state for inputs */
+/* Input focus state */
 .SignupPage input:focus {
-  border-color: #0095f6; /* Instagram blue color for input focus */
+  border-color: #80bdff; /* Blue border for input focus */
   outline: none;
-  box-shadow: 0 0 0 1px #0095f6; /* Blue shadow effect on focus */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Blue shadow effect on focus */
 }
 
-/* Style the submit button */
+/* Button styling */
 .SignupPage button {
   width: 100%;
   padding: 12px;
   border: none;
   border-radius: 4px;
-  background: linear-gradient(
-    135deg,
-    #f9d0c4,
-    #f4a3b6
-  ); /* Gradient background */
+  background-color: #4b593b; /* Button color */
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px; /* Space above the button */
+  margin-top: 10px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
-/* Hover state for the button */
+/* Button hover effect */
 .SignupPage button:hover {
-  background: linear-gradient(
-    135deg,
-    #f9d0c4,
-    #f4a3b6
-  ); /* Ensure gradient remains on hover */
+  background-color: #3b4a2c; /* Darker button color on hover */
 }
 
-/* Style error message */
-.error-message {
+/* Error message styling */
+.SignupPage .error-message {
   color: #ff4d4d; /* Red color for error messages */
   font-size: 14px;
   text-align: center;
   margin-top: 10px;
 }
 
-/* Style the login link */
+/* Additional text and link styling */
 .SignupPage p {
   text-align: center;
   font-size: 14px;
@@ -102,7 +111,7 @@
 }
 
 .SignupPage a {
-  color: #6600ff; /* Instagram blue color for links */
+  color: #6600ff; /* Blue color for links */
   text-decoration: none;
 }
 
@@ -110,7 +119,7 @@
   text-decoration: underline; /* Underline on hover */
 }
 
-/* Style the avatar selection section */
+/* Avatar selection styling */
 .avatar-selection {
   display: flex;
   gap: 10px; /* Space between avatars */
@@ -118,9 +127,8 @@
   justify-content: center; /* Center avatars horizontally */
 }
 
-/* Style individual avatars */
 .avatar {
-  width: 50px; /* Adjust size as needed */
+  width: 50px; /* Size of avatars */
   height: 50px;
   border-radius: 50%; /* Make avatars circular */
   border: 2px solid transparent; /* Border for selected avatar */
@@ -128,12 +136,10 @@
   transition: border-color 0.3s ease; /* Smooth transition for border color */
 }
 
-/* Style for selected avatar */
 .avatar.selected {
-  border-color: #0095f6; /* Blue border for selected avatar */
+  border-color: #4b593b; /* Green border for selected avatar */
 }
 
-/* Hover state for avatars */
 .avatar:hover {
   border-color: #ddd; /* Light border on hover */
 }
