@@ -1,5 +1,6 @@
 import "./AboutUs.css";
 import GitHubImg from "../assets/GitHub.png";
+import "../assets/LinkedInLogo.png"
 
 export default function AboutUs() {
   return (
