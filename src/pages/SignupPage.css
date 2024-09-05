@@ -7,15 +7,19 @@ body {
 }
 
 .SignupPage {
+  background-image: url("../assets/homepage.jpg"); /* Replace with the actual image URL */
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100vh; /* Sets the height to 100% of the viewport height */
+  width: 100vw; /* Sets the width to 100% of the viewport width */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 75px); /* Adjust based on your navbar height */
-  background-color: #f5f4ef; /* Match the background color */
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
   padding: 20px;
-  box-sizing: border-box;
-  margin-top: 75px; /* Adjust for navbar */
+  box-sizing: border-box; /* Include padding in the total width and height */
+  margin: 0;
 }
 
 .SignupPage form {

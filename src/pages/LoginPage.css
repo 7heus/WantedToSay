@@ -1,20 +1,17 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f4ef; /* Background color to match */
-}
-
 .LoginPage {
+  background-image: url("../assets/homepage.jpg"); /* Replace with the actual image URL */
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100vh; /* Sets the height to 100% of the viewport height */
+  width: 100vw; /* Sets the width to 100% of the viewport width */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 75px); /* Adjust based on your navbar height */
-  background-color: #f5f4ef; /* Match background color */
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  align-items: center; /* Horizontally center the content */
   padding: 20px;
-  box-sizing: border-box;
-  margin-top: 75px; /* Adjust for navbar height */
+  box-sizing: border-box; /* Include padding in the total width and height */
+  margin: 0;
 }
 
 .form-container {
@@ -89,21 +86,20 @@ body {
 
 .LoginPage .links-container {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 20px;
 }
 
-/* Style the signup and password reset links */
 .LoginPage p {
   text-align: center;
   font-size: 16px; /* Larger font size for text */
   color: #333;
-  margin-top: 20px; /* Add space above the paragraph */
+  margin-top: 10px; /* Add space between each paragraph */
 }
 
 .LoginPage a {
   color: #6600ff; /* Blue color for links */
   text-decoration: none;
-  margin: 0 10px; /* Add horizontal spacing between links */
+  margin: 0; /* Remove default horizontal spacing */
 }
 
 .LoginPage a:hover {
