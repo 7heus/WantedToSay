@@ -18,15 +18,7 @@ export default function VerifyNow({ verifying }) {
         <div className="verify-alert">
           <div className="inner-box">
             <hr />
-            <p>
-              Your email is not verified! Click{" "}
-              <a
-                href={`https://wantedtosay.netlify.app/email/verify/${user._id}`}
-              >
-                here
-              </a>{" "}
-              to verify.{" "}
-            </p>
+            <p>Your email is not verified! Please check your email.</p>
             <hr />
             <p id="close-button" onClick={() => setIsOpen(false)}>
               Close
