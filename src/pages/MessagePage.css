@@ -54,9 +54,9 @@
   color: white;
   font-size: 12px;
   font-weight: bold;
-  position: absolute;
   margin: none;
   padding: none;
+  margin: 10px;
 }
 
 .page-buttons button:hover {
@@ -70,17 +70,4 @@
   transform: translate(-50%);
   margin: none;
   padding: none;
-}
-
-.prevPageBtn {
-  position: fixed;
-  top: 200px;
-  left: 47.5%;
-  transform: translate(-100%);
-}
-
-.nextPageBtn {
-  position: fixed;
-  top: 200px;
-  left: 52.5%;
 }
